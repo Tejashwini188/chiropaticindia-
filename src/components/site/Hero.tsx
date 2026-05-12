@@ -1,19 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Activity, Brain, Sparkles, ShieldCheck, Globe2, Leaf, Info, UsersRound, Handshake } from "lucide-react";
-import spine from "@/assets/spine-hero.png";
+import { ArrowRight, Info, UsersRound, Handshake } from "lucide-react";
+import { SpineVisual } from "./SpineVisual";
 
-const floatCards = [
-  { icon: Activity, title: "Spinal Health", desc: "Better movement, better life", x: "left-2 md:-left-6", y: "top-10" },
-  { icon: Brain, title: "Nerve Function", desc: "Healthy spine, healthy nerves", x: "right-2 md:-right-4", y: "top-1/3" },
-  { icon: Sparkles, title: "Posture & Alignment", desc: "Align your spine, align your life", x: "left-0 md:-left-10", y: "bottom-16" },
-];
 
-const trust = [
-  { icon: ShieldCheck, label: "Evidence Based" },
-  { icon: Leaf, label: "Drug-Free Care" },
-  { icon: Activity, label: "Holistic Approach" },
-  { icon: Globe2, label: "Global Standards" },
-];
 
 const infoItems = [
   {
@@ -21,7 +10,7 @@ const infoItems = [
     title: "Chiropractic Information",
     desc: "Learn about the conditions treated with chiropractic",
     btn: "LEARN MORE",
-    link: "#conditions",
+    link: "#faq",
   },
   {
     icon: UsersRound,
@@ -49,28 +38,25 @@ export function Hero() {
         <div className="absolute inset-0 noise opacity-60" />
       </div>
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-12">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-12 px-6 lg:flex-row">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="lg:col-span-6"
+          className="w-full lg:w-[55%]"
         >
           <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-medium text-primary">
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
             Advancing Spinal Health & Wellbeing
           </span>
 
-          <h1 className="mt-6 font-serif text-5xl leading-[1.05] md:text-6xl lg:text-7xl">
-            Building a <em className="italic font-light">Healthier</em> India,
-            <br />
-            <span className="text-gradient">One Spine</span> at a Time
+          <h1 className="mt-6 font-serif text-6xl leading-[1.05] tracking-tight md:text-7xl lg:text-[5.5rem]">
+            Welcome To <br />
+            <em className="italic font-light">Chiropractic</em> <span className="text-gradient">India</span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Chiropractic India is the national voice for chiropractic awareness,
-            education, and advocacy. Together we promote drug-free,
-            non-invasive, and holistic spinal care.
+          <p className="mt-8 max-w-xl text-xl font-medium leading-relaxed text-muted-foreground md:text-2xl">
+            India’s Leading Platform for Chiropractic Education, Research, Spinal Health Awareness, and Professional Clinical Development.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -96,44 +82,10 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="relative lg:col-span-6"
+          className="relative mt-16 w-full lg:mt-0 lg:w-[42%]"
         >
-          <div className="relative mx-auto aspect-[3/4] w-full max-w-md">
-            {/* glowing orbs */}
-            <div className="absolute inset-0 -z-10">
-              <div className="absolute left-1/2 top-1/2 h-[110%] w-[110%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,_oklch(0.78_0.14_150_/_0.45),_transparent_70%)] animate-pulse-glow" />
-              <div className="absolute left-1/2 top-1/2 h-[80%] w-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/15" />
-              <div className="absolute left-1/2 top-1/2 h-[60%] w-[60%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/10" />
-            </div>
-
-            <img
-              src={spine}
-              alt="Anatomical spine illustration"
-              width={1024}
-              height={1024}
-              className="relative z-0 mx-auto h-full w-auto object-contain animate-float drop-shadow-[0_30px_60px_oklch(0.3_0.06_160/0.25)]"
-            />
-
-            {/* floating glass cards */}
-            {floatCards.map((c, i) => (
-              <motion.div
-                key={c.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 + i * 0.15, duration: 0.6 }}
-                className={`absolute z-10 ${c.x} ${c.y} w-56 rounded-2xl glass-strong p-3.5 shadow-elegant`}
-              >
-                <div className="flex items-start gap-3">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-secondary text-primary">
-                    <c.icon className="h-4 w-4" />
-                  </span>
-                  <div>
-                    <p className="text-sm font-semibold">{c.title}</p>
-                    <p className="text-xs text-muted-foreground">{c.desc}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          <div className="relative mx-auto w-full max-w-[320px]">
+            <SpineVisual />
           </div>
         </motion.div>
       </div>

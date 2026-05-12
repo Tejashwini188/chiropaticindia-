@@ -6,7 +6,6 @@ import logo from "@/assets/logo.jpeg";
 const links = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Conditions", href: "#conditions" },
   { label: "Mission", href: "#mission" },
   { label: "Experts", href: "#team" },
   { label: "Information", href: "#information" },

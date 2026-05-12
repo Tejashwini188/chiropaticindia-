@@ -3,7 +3,6 @@ import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
 import {
   About,
-  Conditions,
   Fundraising,
   Mission,
   Testimonials,
@@ -51,7 +50,6 @@ function Index() {
       <Navbar />
       <Hero />
       <About />
-      <Conditions />
       <Mission />
       <Testimonials />
       <Programs />

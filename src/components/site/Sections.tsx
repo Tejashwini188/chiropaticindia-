@@ -36,6 +36,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import mission from "@/assets/mission.jpg";
+import docjay from "@/assets/docjay.png";
 
 function SectionHeader({
   eyebrow,
@@ -84,12 +85,12 @@ export function About() {
             Today, we continue to push forward in setting standards of practice, education, and accreditation.
           </p>
           <p className="mt-3 text-muted-foreground">
-            While early applications for government approval of Doctor of Chiropractic courses 
-            faced limited interest, current healthcare realities have prompted the CDC and 
+            While early applications for government approval of Doctor of Chiropractic courses
+            faced limited interest, current healthcare realities have prompted the CDC and
             Chiropractic India to accelerate our mission for official recognition and integration.
           </p>
           <a
-            href="#conditions"
+            href="#mission"
             className="mt-8 inline-flex items-center gap-2 rounded-full gradient-cta px-6 py-3 text-sm font-medium text-primary-foreground shadow-elegant transition-transform hover:scale-[1.03]"
           >
             Explore Chiropractic <ArrowRight className="h-4 w-4" />
@@ -170,12 +171,12 @@ export function Mission() {
             Spinal Healthcare
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Chiropractic India has adopted the vision of the Chiropractic Diplomatic Corps to assure 
-            India's availability and equal access to chiropractic services. We strive to set 
+            Chiropractic India has adopted the vision of the Chiropractic Diplomatic Corps to assure
+            India's availability and equal access to chiropractic services. We strive to set
             standards of practice, education, accreditation, and legislation nationwide.
           </p>
           <p className="mt-3 text-sm text-muted-foreground italic">
-            Working alongside organizations like CAMHADD and CTPHF, we are pushing forward 
+            Working alongside organizations like CAMHADD and CTPHF, we are pushing forward
             the integration of Doctor of Chiropractic courses into mainstream Indian education.
           </p>
           <a
@@ -202,59 +203,7 @@ export function Mission() {
   );
 }
 
-export function Conditions() {
-  const items = [
-    { icon: Bone, t: "Back Pain" },
-    { icon: PersonStanding, t: "Neck Pain" },
-    { icon: Zap, t: "Sciatica" },
-    { icon: Dumbbell, t: "Sports Injuries" },
-    { icon: Activity, t: "Posture Problems" },
-    { icon: Brain, t: "Headaches & Migraines" },
-    { icon: Hand, t: "Joint Pain" },
-    { icon: Target, t: "Muscle Tension" },
-  ];
-  return (
-    <section id="conditions" className="relative px-6 py-28">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[60%] gradient-soft" />
-      <SectionHeader
-        eyebrow="We Help With"
-        title={<>Conditions We <em className="italic font-light">Address</em></>}
-        desc="Evidence-based chiropractic care for a wide range of musculoskeletal and neurological conditions."
-      />
 
-      <div className="mx-auto mt-14 grid max-w-7xl grid-cols-2 gap-4 md:grid-cols-4">
-        {items.map((c, i) => (
-          <motion.button
-            key={c.t}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
-            className="group relative overflow-hidden rounded-3xl glass p-6 text-left transition-all hover:-translate-y-1 hover:shadow-elegant"
-          >
-            <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-              <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-[radial-gradient(closest-side,_oklch(0.78_0.14_150_/_0.35),_transparent)]" />
-            </div>
-            <span className="grid h-14 w-14 place-items-center rounded-2xl border border-border bg-card text-primary transition-transform group-hover:scale-110">
-              <c.icon className="h-6 w-6" />
-            </span>
-            <p className="mt-5 font-serif text-lg">{c.t}</p>
-            <span className="mt-3 block h-0.5 w-10 rounded-full bg-primary/60" />
-          </motion.button>
-        ))}
-      </div>
-
-      <div className="mt-12 text-center">
-        <a
-          href="#"
-          className="inline-flex items-center gap-2 rounded-full gradient-cta px-6 py-3 text-sm font-medium text-primary-foreground shadow-elegant transition-transform hover:scale-[1.03]"
-        >
-          View All Conditions <ArrowRight className="h-4 w-4" />
-        </a>
-      </div>
-    </section>
-  );
-}
 
 function Counter({ value, label }: { value: string; label: string }) {
   return (
@@ -277,7 +226,7 @@ export function Impact() {
       title: "Chiropractic Information",
       desc: "Learn about the conditions treated with chiropractic",
       btn: "LEARN MORE",
-      link: "#conditions",
+      link: "#faq",
     },
     {
       icon: UsersRound,
@@ -468,7 +417,7 @@ export function CommunityEvents() {
               </div>
               <p className="rounded-2xl bg-secondary/30 p-6 text-sm font-medium leading-relaxed text-slate-900">
                 <Sparkles className="mb-2 h-5 w-5 text-primary" />
-                Mission Project: We invite applications for a 3-month mission project. 
+                Mission Project: We invite applications for a 3-month mission project.
                 10 Veteran field doctors will provide care and scoliosis screening across India.
               </p>
             </div>
@@ -527,7 +476,7 @@ export function CommunityEvents() {
                 <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Professional Background</label>
                 <textarea rows={3} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
               </div>
-              
+
               <button className="mt-4 w-full rounded-full gradient-cta py-4 text-sm font-bold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.02] active:scale-[0.98]">
                 SUBMIT APPLICATION
               </button>
@@ -540,41 +489,104 @@ export function CommunityEvents() {
 }
 
 export function Team() {
-  const team = [
-    { n: "Dr. Aarav Mehta", r: "Chief Chiropractor", c: "oklch(0.78 0.14 150)" },
-    { n: "Dr. Neha Kapoor", r: "Spine Researcher", c: "oklch(0.82 0.1 180)" },
-    { n: "Dr. Rohan Das", r: "Sports Specialist", c: "oklch(0.85 0.12 130)" },
-    { n: "Dr. Ishita Verma", r: "Pediatric Care", c: "oklch(0.8 0.1 200)" },
+  const board = [
+    { n: "docMike", r: "DOCTOR OF CHIROPRACTIC", c: "oklch(0.78 0.14 150)" },
+    { n: "Prof. (Dr.) Tirthankar Ghosh", r: "ERGONOMICS EXPERT", c: "oklch(0.82 0.1 180)" },
+    { n: "Dr. Prof. Phillip Ebrall", r: "B.APP.SC. (CHIROPRACTOR)", c: "oklch(0.85 0.12 130)" },
   ];
+
+  const committee = [
+    { n: "Vinutha M. R", r: "", c: "oklch(0.8 0.1 200)" },
+    { n: "Ms Bia Sandhu", r: "", c: "oklch(0.78 0.14 150)" },
+    { n: "Jedaver Opingo", r: "", c: "oklch(0.82 0.1 180)" },
+  ];
+
   return (
     <section id="team" className="relative px-6 py-28">
       <SectionHeader
         eyebrow="Our Experts"
-        title={<>Meet the <em className="italic font-light">practitioners</em></>}
-        desc="A team of certified chiropractors leading India's spinal wellness movement."
+        title={<>Meet the <em className="italic font-light">Leaders</em></>}
       />
-      <div className="mx-auto mt-14 grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {team.map((d, i) => (
+
+      <div className="mx-auto mt-14 max-w-7xl">
+        {/* Founder Section */}
+        <div className="mb-28 flex flex-col items-center gap-10 md:flex-row md:justify-around">
           <motion.div
-            key={d.n}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.08 }}
-            className="group rounded-3xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:shadow-elegant"
+            className="text-center md:text-left"
           >
-            <div
-              className="relative aspect-[4/5] overflow-hidden rounded-2xl"
-              style={{ background: `radial-gradient(120% 120% at 30% 20%, ${d.c}, oklch(0.96 0.02 150) 70%)` }}
-            >
-              <div className="absolute inset-x-0 bottom-0 grid place-items-center pb-6">
-                <span className="font-serif text-7xl text-foreground/80">{d.n.split(" ")[1][0]}</span>
-              </div>
-            </div>
-            <p className="mt-5 font-serif text-xl">{d.n}</p>
-            <p className="text-sm text-muted-foreground">{d.r}</p>
+            <h3 className="font-sans text-2xl md:text-3xl lg:text-4xl leading-snug font-bold text-[#002b5c]">
+              Dr Spine Care Pvt Ltd,<br />
+              Asian Institute of Scoliosis,<br />
+              Mr & Ms Posture India<br />
+              (Pageant),<br />
+              Far East Chiro Research (FECR)
+            </h3>
+            <p className="mt-8 text-xl text-muted-foreground">
+              – Founder & Chief Architect,
+            </p>
           </motion.div>
-        ))}
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="flex w-full max-w-[320px] flex-col items-center text-center"
+          >
+            <img src={docjay} alt="Prof, Dr Jayul Doshi" className="aspect-square w-full overflow-hidden rounded-2xl md:aspect-[4/5] mb-6 object-cover" />
+            <p className="font-sans text-xl font-bold text-[#002b5c]">Prof, Dr Jayul Doshi</p>
+            <p className="font-sans font-bold text-[#002b5c] mt-1">docJay</p>
+          </motion.div>
+        </div>
+
+        {/* Board Members */}
+        <div className="mb-28 text-center">
+          <h2 className="mb-14 font-sans text-4xl font-bold text-[#002b5c]">Members of Board</h2>
+          <div className="grid gap-8 sm:grid-cols-3 max-w-5xl mx-auto">
+            {board.map((d, i) => (
+              <motion.div
+                key={d.n}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="flex flex-col items-center group cursor-pointer"
+              >
+                <div
+                  className="aspect-square w-full max-w-[260px] overflow-hidden rounded-2xl mb-6 transition-all group-hover:-translate-y-1 group-hover:shadow-elegant"
+                  style={{ background: `radial-gradient(120% 120% at 30% 20%, ${d.c}, oklch(0.96 0.02 150) 70%)` }}
+                />
+                <p className="font-sans text-lg font-bold text-[#002b5c]">{d.n}</p>
+                <p className="mt-2 text-xs font-bold tracking-widest uppercase text-[#002b5c]">{d.r}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Managing Committee */}
+        <div className="text-center">
+          <h2 className="mb-14 font-sans text-4xl font-bold text-[#002b5c]">Managing Committee</h2>
+          <div className="grid gap-8 sm:grid-cols-3 max-w-5xl mx-auto">
+            {committee.map((d, i) => (
+              <motion.div
+                key={d.n}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="flex flex-col items-center group cursor-pointer"
+              >
+                <div
+                  className="aspect-square w-full max-w-[260px] overflow-hidden rounded-2xl mb-6 transition-all group-hover:-translate-y-1 group-hover:shadow-elegant"
+                  style={{ background: `radial-gradient(120% 120% at 30% 20%, ${d.c}, oklch(0.96 0.02 150) 70%)` }}
+                />
+                <p className="font-sans text-lg font-bold text-[#002b5c]">{d.n}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -684,7 +696,7 @@ export function Footer() {
         <div>
           <p className="text-sm font-semibold">Explore</p>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            {["About", "Conditions", "Mission", "Experts", "FAQ"].map((l) => (
+            {["About", "Mission", "Experts", "FAQ"].map((l) => (
               <li key={l}><a href={`#${l.toLowerCase()}`} className="hover:text-foreground">{l}</a></li>
             ))}
           </ul>
@@ -730,13 +742,13 @@ export function Fundraising() {
                 Registration Number: <span className="font-bold text-primary">IV 301/22-23</span>
               </p>
               <p>
-                Chiropractic India is tasked to establish chiropractic education in India. 
-                Decades of foreign graduates coming to India have been hindered by administrative 
-                barriers. The sustainable solution is to graduate Indian citizens in 
+                Chiropractic India is tasked to establish chiropractic education in India.
+                Decades of foreign graduates coming to India have been hindered by administrative
+                barriers. The sustainable solution is to graduate Indian citizens in
                 university programs within our own country.
               </p>
               <p>
-                This mission is vital to provide the ability to teach and graduate our own 
+                This mission is vital to provide the ability to teach and graduate our own
                 chiropractors, but we need significant support from various sectors to succeed.
               </p>
             </div>
@@ -801,7 +813,7 @@ export function Fundraising() {
             <div className="mt-10 border-t pt-10">
               <h4 className="font-bold">Register Your Interest</h4>
               <p className="text-xs text-muted-foreground">Join our mission to support Chiropractic education</p>
-              
+
               <div className="mt-6 grid gap-4">
                 <div className="grid grid-cols-2 gap-4">
                   <input type="text" placeholder="Name" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
@@ -813,7 +825,7 @@ export function Fundraising() {
                 </div>
                 <textarea placeholder="Specific interests or how you would like to support..." rows={3} className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
               </div>
-              
+
               <button className="mt-6 w-full rounded-full gradient-cta py-4 text-sm font-bold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.02] active:scale-[0.98]">
                 SUBMIT REGISTRATION
               </button>
@@ -870,9 +882,8 @@ export function Information() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`relative pb-4 text-sm font-bold uppercase tracking-widest transition-colors ${
-                  activeTab === tab.id ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={`relative pb-4 text-sm font-bold uppercase tracking-widest transition-colors ${activeTab === tab.id ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 {tab.label}
                 {activeTab === tab.id && (
@@ -899,7 +910,7 @@ export function Information() {
                 <div className="rounded-[2.5rem] bg-slate-50 p-8 md:p-12">
                   <h3 className="font-serif text-3xl font-bold">DC/MD Education Comparison</h3>
                   <p className="mt-4 text-muted-foreground">
-                    Did You Know? Doctors of Chiropractic (DC) and Doctors of Medicine (MD) have similar 
+                    Did You Know? Doctors of Chiropractic (DC) and Doctors of Medicine (MD) have similar
                     rigorous training to ensure the highest standard of patient care.
                   </p>
 
@@ -938,9 +949,9 @@ export function Information() {
                 <div className="mt-8 rounded-[2.5rem] bg-secondary/20 p-8 md:p-12">
                   <h3 className="font-serif text-2xl font-bold">Chiropractic Education in India</h3>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                    The founding of Chiropractic India, an education and research charity, represents 
-                    the full technical and logistical support needed to finally launch formal Chiropractic 
-                    Education and research in India. Through partnerships with Manila universities, we 
+                    The founding of Chiropractic India, an education and research charity, represents
+                    the full technical and logistical support needed to finally launch formal Chiropractic
+                    Education and research in India. Through partnerships with Manila universities, we
                     now move forward to accredit the first diploma and degree programs for Indian students.
                   </p>
                 </div>
@@ -992,7 +1003,7 @@ export function Information() {
               <div className="rounded-[2.5rem] bg-secondary/20 p-8 text-center md:p-14">
                 <h3 className="font-serif text-3xl font-bold text-primary">What is Advocacy?</h3>
                 <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground italic">
-                  "Advocacy is defined as any action that speaks in favor of, recommends, 
+                  "Advocacy is defined as any action that speaks in favor of, recommends,
                   argues for a cause, supports or defends, or pleads on behalf of others."
                 </p>
                 <div className="mt-10 flex flex-wrap justify-center gap-6">
@@ -1031,7 +1042,7 @@ export function Information() {
                   ].map((a, i) => (
                     <div key={i} className="group rounded-3xl border border-slate-100 p-6 transition-all hover:bg-slate-50">
                       <div className="aspect-square w-full rounded-2xl bg-slate-100 p-8 grid place-items-center grayscale transition-all group-hover:grayscale-0">
-                         <span className="font-serif text-5xl text-slate-300">{a.n[0]}</span>
+                        <span className="font-serif text-5xl text-slate-300">{a.n[0]}</span>
                       </div>
                       <p className="mt-4 font-bold">{a.n}</p>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-primary">{a.r}</p>
@@ -1072,7 +1083,7 @@ export function Information() {
                     "Mahatma Gandhi's Health Restored Through Chiropractic"
                   </h3>
                   <p className="mt-6 text-sm leading-relaxed opacity-90">
-                    Documented in The National Chiropractic Journal, April 1942. Gandhi was under 
+                    Documented in The National Chiropractic Journal, April 1942. Gandhi was under
                     the care of Dr. Peter Boike, head of the Chiropractic Health Institute of Calcutta.
                   </p>
                   <div className="mt-8 rounded-2xl bg-white/10 p-6 backdrop-blur">
@@ -1087,7 +1098,7 @@ export function Information() {
                 <div className="mx-auto max-w-3xl text-center">
                   <h4 className="font-serif text-3xl font-bold">Join the Community</h4>
                   <p className="mt-4 text-muted-foreground">
-                    Even though Chiropractic is new to India, millions globally experience its benefits annually. 
+                    Even though Chiropractic is new to India, millions globally experience its benefits annually.
                     Will you consider being an advocate to support the cause in India?
                   </p>
 
@@ -1102,7 +1113,7 @@ export function Information() {
                     </div>
                     <input type="text" placeholder="Education, Degrees" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-primary/50" />
                     <textarea placeholder="Your areas of interest..." rows={4} className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-primary/50" />
-                    
+
                     <button className="mt-4 w-full rounded-full gradient-cta py-4 text-sm font-bold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.02]">
                       SUBMIT APPLICATION
                     </button>
@@ -1177,7 +1188,7 @@ export function Blog() {
               title={<>Our Latest <em className="italic font-light">Articles</em></>}
               desc="Deep dives into chiropractic science, education, and patient success stories."
             />
-            
+
             <div className="mt-12 grid gap-6 sm:grid-cols-2">
               {posts.map((post, i) => (
                 <motion.article
