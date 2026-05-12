@@ -84,7 +84,7 @@ export function Hero() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="relative mt-16 w-full lg:mt-0 lg:w-[42%]"
         >
-          <div className="relative mx-auto w-full max-w-[320px]">
+          <div className="relative mx-auto w-full max-w-[440px]">
             <SpineVisual />
           </div>
         </motion.div>

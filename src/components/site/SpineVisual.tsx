@@ -1,138 +1,129 @@
+'use client';
+
 import { motion } from 'framer-motion';
 
-const vertebrae = [
-  { y: 30, w: 28, h: 18, rx: 6 },
-  { y: 50, w: 30, h: 18, rx: 6 },
-  { y: 70, w: 32, h: 18, rx: 6 },
-  { y: 90, w: 34, h: 18, rx: 6 },
-  { y: 110, w: 34, h: 18, rx: 6 },
-  { y: 130, w: 36, h: 18, rx: 6 },
-  { y: 150, w: 36, h: 18, rx: 6 },
-  { y: 175, w: 38, h: 20, rx: 6 },
-  { y: 198, w: 40, h: 20, rx: 6 },
-  { y: 221, w: 42, h: 20, rx: 6 },
-  { y: 244, w: 44, h: 20, rx: 6 },
-  { y: 267, w: 44, h: 20, rx: 6 },
-  { y: 295, w: 46, h: 22, rx: 7 },
-  { y: 320, w: 48, h: 22, rx: 7 },
-  { y: 345, w: 50, h: 22, rx: 7 },
-  { y: 370, w: 50, h: 22, rx: 7 },
-  { y: 395, w: 48, h: 22, rx: 7 },
-];
-
-const discs = [49, 69, 89, 109, 129, 149, 172, 196, 219, 242, 265, 292, 317, 342, 367, 392];
-
-
 export const SpineVisual = () => {
-  return (
-    <div className="relative w-full max-w-[380px] aspect-[2/3] mx-auto overflow-hidden rounded-[2rem] bg-gradient-to-b from-primary/5 via-transparent to-primary/10 border border-primary/10 backdrop-blur-sm shadow-xl">
-      {/* SVG Spine Visualization */}
-      <div className="absolute inset-0 flex items-center justify-center p-4">
-        <svg viewBox="0 0 200 500" className="w-full h-full opacity-95 drop-shadow-xl">
-          <defs>
-            <linearGradient id="spineGrad1" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="oklch(0.95 0.02 160)" />
-              <stop offset="100%" stopColor="oklch(0.9 0.05 160)" />
-            </linearGradient>
-            <linearGradient id="spineGrad2" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="oklch(0.9 0.05 160)" />
-              <stop offset="100%" stopColor="oklch(0.85 0.08 160)" />
-            </linearGradient>
-            <linearGradient id="spineGrad3" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="oklch(0.85 0.08 160)" />
-              <stop offset="100%" stopColor="oklch(0.8 0.1 160)" />
-            </linearGradient>
-            <linearGradient id="nerveGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="var(--color-primary)" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="var(--color-primary)" stopOpacity="0.2" />
-            </linearGradient>
-            <radialGradient id="glowGrad">
-              <stop offset="0%" stopColor="var(--color-primary)" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="var(--color-primary)" stopOpacity="0" />
-            </radialGradient>
-          </defs>
+    return (
+        <div className="relative w-full aspect-[4/5] max-w-[520px] mx-auto">
+            {/* Main visual container - Matches the soft cyan/blue of original but in light green */}
+            <div className="absolute inset-0 bg-emerald-50/40 rounded-[2.5rem] overflow-hidden border border-emerald-100/30">
+                
+                {/* Grid Background - subtle and clean */}
+                <div className="absolute inset-0 opacity-[0.05]"
+                    style={{
+                        backgroundImage: `linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)`,
+                        backgroundSize: '40px 40px',
+                    }}
+                />
 
-          {/* Vertebrae */}
-          {vertebrae.map((v, i) => (
-            <motion.rect
-              key={`vertebra-${i}`}
-              x={100 - v.w / 2}
-              y={v.y}
-              width={v.w}
-              height={v.h}
-              rx={v.rx}
-              fill={`url(#spineGrad${i < 5 ? '1' : i < 12 ? '2' : '3'})`}
-              stroke="var(--color-primary)"
-              strokeWidth="0.3"
-              strokeOpacity="0.1"
-              initial={{ opacity: 0, scale: 0.8, y: v.y + 10 }}
-              animate={{ opacity: 1, scale: 1, y: v.y }}
-              transition={{ 
-                delay: 0.2 + i * 0.03, 
-                duration: 0.7,
-                ease: [0.23, 1, 0.32, 1] 
-              }}
-              style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.05))" }}
-            />
-          ))}
+                {/* Spine SVG Visualization - Using exact proportions from reference */}
+                <div className="absolute inset-0 flex items-center justify-center p-8">
+                    <svg viewBox="0 0 200 500" className="w-full h-full opacity-90 drop-shadow-xl">
+                        {/* Spine vertebrae - Exact values from reference code */}
+                        {[
+                            { y: 30, w: 28, h: 16, rx: 6 },
+                            { y: 52, w: 30, h: 16, rx: 6 },
+                            { y: 74, w: 32, h: 16, rx: 6 },
+                            { y: 96, w: 34, h: 16, rx: 6 },
+                            { y: 118, w: 34, h: 16, rx: 6 },
+                            { y: 140, w: 36, h: 16, rx: 6 },
+                            { y: 162, w: 36, h: 16, rx: 6 },
+                            { y: 190, w: 38, h: 18, rx: 6 },
+                            { y: 214, w: 40, h: 18, rx: 6 },
+                            { y: 238, w: 42, h: 18, rx: 6 },
+                            { y: 262, w: 44, h: 18, rx: 6 },
+                            { y: 286, w: 44, h: 18, rx: 6 },
+                            { y: 316, w: 46, h: 20, rx: 7 },
+                            { y: 342, w: 48, h: 20, rx: 7 },
+                            { y: 368, w: 50, h: 20, rx: 7 },
+                            { y: 394, w: 50, h: 20, rx: 7 },
+                            { y: 420, w: 48, h: 20, rx: 7 },
+                        ].map((v, i) => (
+                            <motion.rect
+                                key={i}
+                                x={100 - v.w / 2}
+                                y={v.y}
+                                width={v.w}
+                                height={v.h}
+                                rx={v.rx}
+                                fill={`url(#spineGrad${i < 5 ? '1' : i < 12 ? '2' : '3'})`}
+                                stroke="oklch(0.42 0.09 160)"
+                                strokeWidth="0.5"
+                                strokeOpacity="0.3"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.5 + i * 0.05, duration: 0.4 }}
+                            />
+                        ))}
 
-          {/* Intervertebral Discs (Seamlessly Blended) */}
-          {discs.map((y, i) => (
-            <motion.ellipse
-              key={`disc-${i}`}
-              cx="100"
-              cy={y}
-              rx={12 + (i > 6 ? 4 : i > 11 ? 6 : 0)}
-              ry="4" // Increased height for seamless overlap
-              fill="oklch(0.15 0.05 160)" 
-              fillOpacity="0.2"
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ delay: 0.4 + i * 0.03, duration: 0.8, ease: "easeOut" }}
-              style={{ filter: "blur(1px)" }} // Softened edges for blending
-            />
-          ))}
+                        {/* Discs between vertebrae - Exact values from reference code */}
+                        {[48, 70, 92, 114, 136, 158, 186, 210, 234, 258, 282, 312, 338, 364, 390, 416].map((y, i) => (
+                            <motion.ellipse
+                                key={`disc-${i}`}
+                                cx="100"
+                                cy={y}
+                                rx={12 + (i > 6 ? 4 : i > 11 ? 6 : 0)}
+                                ry="3"
+                                fill="oklch(0.55 0.11 160)"
+                                fillOpacity="0.3"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.8 + i * 0.04 }}
+                            />
+                        ))}
 
+                        {/* Nerve pathways (The Line Forming) - Exact path from reference */}
+                        <motion.path
+                            d="M100 30 C 80 100, 120 200, 100 250 C 80 300, 120 370, 100 440"
+                            stroke="url(#nerveGrad)"
+                            strokeWidth="1.5"
+                            fill="none"
+                            strokeDasharray="4 4"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ delay: 1.2, duration: 2, ease: "easeInOut" }}
+                        />
 
+                        {/* Glow effect on healthy areas - Exact positions from reference */}
+                        {[100, 240, 350].map((y, i) => (
+                            <motion.circle
+                                key={`glow-${i}`}
+                                cx="100"
+                                cy={y}
+                                r="25"
+                                fill="url(#glowGrad)"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: [0, 0.6, 0] }}
+                                transition={{ delay: 2 + i * 0.5, duration: 3, repeat: Infinity, repeatDelay: 2 }}
+                            />
+                        ))}
 
-
-          {/* Nerve Pathway */}
-          <motion.path
-            d="M100 30 C 80 100, 120 200, 100 250 C 80 300, 120 370, 100 440"
-            stroke="url(#nerveGrad)"
-            strokeWidth="1.5"
-            fill="none"
-            strokeDasharray="4 6"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ delay: 0.8, duration: 3, ease: "easeInOut" }}
-          />
-
-          {/* Pulsing Health Glows */}
-          {[100, 240, 350].map((y, i) => (
-            <motion.circle
-              key={`glow-${i}`}
-              cx="100"
-              cy={y}
-              r="40"
-              fill="url(#glowGrad)"
-              initial={{ opacity: 0, scale: 0.6 }}
-              animate={{ 
-                opacity: [0, 0.4, 0],
-                scale: [0.9, 1.3, 0.9]
-              }}
-              transition={{ 
-                delay: 1.5 + i * 1, 
-                duration: 5, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
-              }}
-            />
-          ))}
-
-        </svg>
-      </div>
-    </div>
-  );
+                        {/* SVG Definitions for Gradients - Emerald version of original colors */}
+                        <defs>
+                            <linearGradient id="spineGrad1" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="oklch(0.96 0.02 160)" />
+                                <stop offset="100%" stopColor="oklch(0.85 0.06 160)" />
+                            </linearGradient>
+                            <linearGradient id="spineGrad2" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="oklch(0.85 0.06 160)" />
+                                <stop offset="100%" stopColor="oklch(0.75 0.1 160)" />
+                            </linearGradient>
+                            <linearGradient id="spineGrad3" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="oklch(0.75 0.1 160)" />
+                                <stop offset="100%" stopColor="oklch(0.65 0.12 160)" />
+                            </linearGradient>
+                            <linearGradient id="nerveGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stopColor="oklch(0.55 0.11 160)" stopOpacity="0.8" />
+                                <stop offset="100%" stopColor="oklch(0.42 0.09 160)" stopOpacity="0.4" />
+                            </linearGradient>
+                            <radialGradient id="glowGrad">
+                                <stop offset="0%" stopColor="oklch(0.55 0.11 160)" stopOpacity="0.4" />
+                                <stop offset="100%" stopColor="oklch(0.55 0.11 160)" stopOpacity="0" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    );
 };
-

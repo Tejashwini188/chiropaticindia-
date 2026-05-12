@@ -385,108 +385,6 @@ export function Programs() {
   );
 }
 
-export function CommunityEvents() {
-  return (
-    <section id="events" className="relative px-6 py-28">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid gap-16 lg:grid-cols-2">
-          {/* Service Details side */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Community Service</span>
-            <h2 className="mt-3 font-serif text-4xl md:text-5xl">
-              Serving our <em className="italic font-light">Communities</em>
-            </h2>
-            <div className="mt-8 space-y-6 text-muted-foreground">
-              <p>
-                In addition to Public Relations and Public Education, we actively involve volunteers in
-                Posture Screenings of children in local schools and adults in various community events.
-              </p>
-              <div className="flex flex-wrap gap-8 py-4">
-                <div>
-                  <p className="text-3xl font-bold text-slate-900">18,000+</p>
-                  <p className="text-xs uppercase tracking-widest">Followers</p>
-                </div>
-                <div>
-                  <p className="text-3xl font-bold text-slate-900">48,500+</p>
-                  <p className="text-xs uppercase tracking-widest">Patients Benefitted</p>
-                </div>
-              </div>
-              <p className="rounded-2xl bg-secondary/30 p-6 text-sm font-medium leading-relaxed text-slate-900">
-                <Sparkles className="mb-2 h-5 w-5 text-primary" />
-                Mission Project: We invite applications for a 3-month mission project.
-                10 Veteran field doctors will provide care and scoliosis screening across India.
-              </p>
-            </div>
-
-            <div className="mt-10 space-y-4">
-              {[
-                { title: "Health Camps", desc: "Check-ups and basic treatments in rural and urban areas." },
-                { title: "Rehabilitation Centres", desc: "Support for individuals with disabilities and musculoskeletal issues." },
-                { title: "Health Education", desc: "Collaborating with schools and colleges for spinal health awareness." },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4 rounded-2xl border border-slate-100 p-5 transition-colors hover:bg-slate-50">
-                  <div className="mt-1 h-2 w-2 rounded-full bg-primary" />
-                  <div>
-                    <h4 className="font-bold">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Registration side */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="rounded-[2.5rem] bg-white p-8 shadow-elegant md:p-12"
-          >
-            <h3 className="text-2xl font-bold">Volunteer Registration</h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Apply to participate in our 3-month community care mission.
-            </p>
-
-            <div className="mt-8 grid gap-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Name</label>
-                  <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
-                </div>
-                <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Email</label>
-                  <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Mobile</label>
-                  <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
-                </div>
-                <div className="space-y-1.5">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Country</label>
-                  <input type="text" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
-                </div>
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Professional Background</label>
-                <textarea rows={3} className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
-              </div>
-
-              <button className="mt-4 w-full rounded-full gradient-cta py-4 text-sm font-bold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.02] active:scale-[0.98]">
-                SUBMIT APPLICATION
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export function Team() {
   const board = [
@@ -601,36 +499,49 @@ export function FAQ() {
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="relative px-6 py-28">
-      <SectionHeader
-        eyebrow="FAQ"
-        title={<>Common <em className="italic font-light">questions</em></>}
-      />
-      <div className="mx-auto mt-12 max-w-3xl divide-y divide-border rounded-3xl glass">
-        {qs.map((item, i) => {
-          const isOpen = open === i;
-          return (
-            <div key={item.q} className="px-6">
-              <button
-                onClick={() => setOpen(isOpen ? null : i)}
-                className="flex w-full items-center justify-between gap-4 py-5 text-left"
-              >
-                <span className="font-serif text-lg">{item.q}</span>
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-secondary text-primary">
-                  {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-                </span>
-              </button>
-              <motion.div
-                initial={false}
-                animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden"
-              >
-                <p className="pb-5 text-sm text-muted-foreground">{item.a}</p>
-              </motion.div>
-            </div>
-          );
-        })}
+    <section id="faq" className="relative overflow-hidden px-6 py-28 bg-emerald-50/50">
+      {/* Decorative Green Orbs */}
+      <div className="absolute -left-20 top-1/4 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]" />
+      <div className="absolute -right-20 bottom-1/4 h-[400px] w-[400px] rounded-full bg-primary/10 blur-[100px]" />
+
+      <div className="relative z-10">
+        <SectionHeader
+          eyebrow="FAQ"
+          title={<>Common <em className="italic font-light">questions</em></>}
+        />
+        
+        <div className="mx-auto mt-14 max-w-5xl divide-y divide-emerald-100/50 rounded-[3rem] bg-white/60 backdrop-blur-2xl border border-emerald-100/30 shadow-elegant-large">
+          {qs.map((item, i) => {
+            const isOpen = open === i;
+            return (
+              <div key={item.q} className="px-10">
+                <button
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  className="flex w-full items-center justify-between gap-6 py-10 text-left transition-all hover:text-primary group"
+                >
+                  <span className={`font-serif text-2xl md:text-3xl transition-colors ${isOpen ? 'text-primary' : 'text-slate-800'}`}>
+                    {item.q}
+                  </span>
+                  <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-full transition-all duration-500 ${
+                    isOpen ? 'bg-primary text-white rotate-180' : 'bg-emerald-50 text-primary group-hover:bg-emerald-100'
+                  }`}>
+                    {isOpen ? <Minus className="h-6 w-6" /> : <Plus className="h-6 w-6" />}
+                  </span>
+                </button>
+                <motion.div
+                  initial={false}
+                  animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="overflow-hidden"
+                >
+                  <p className="pb-10 text-lg md:text-xl leading-relaxed text-slate-600 max-w-4xl">
+                    {item.a}
+                  </p>
+                </motion.div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
@@ -726,107 +637,87 @@ export function Fundraising() {
   return (
     <section id="fundraising" className="relative overflow-hidden bg-slate-50/50 py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-16 lg:grid-cols-2">
-          {/* Content side */}
+        {/* Centered Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mb-16 max-w-3xl text-center"
+        >
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Contribute</span>
+          <h2 className="mt-3 font-serif text-4xl md:text-5xl">
+            Support <em className="italic font-light">Chiropractic</em> Education
+          </h2>
+          <p className="mt-6 text-lg font-bold text-primary">
+            Registration Number: IV 301/22-23
+          </p>
+          <p className="mt-4 text-muted-foreground">
+            We are dedicated to establishing formal chiropractic education in India. 
+            Join our mission to graduate the next generation of Indian chiropractors through 
+            university programs within our own country.
+          </p>
+        </motion.div>
+
+        {/* Horizontal Layout for Details & Registration */}
+        <div className="grid gap-8 lg:grid-cols-12">
+          {/* Banking Details */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="lg:col-span-5 rounded-[2.5rem] bg-white p-8 shadow-elegant md:p-10"
           >
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Contribute</span>
-            <h2 className="mt-3 font-serif text-4xl md:text-5xl">
-              Support <em className="italic font-light">Chiropractic</em> Education
-            </h2>
-            <div className="mt-8 space-y-6 text-muted-foreground">
-              <p className="text-lg leading-relaxed text-foreground/80">
-                Registration Number: <span className="font-bold text-primary">IV 301/22-23</span>
-              </p>
-              <p>
-                Chiropractic India is tasked to establish chiropractic education in India.
-                Decades of foreign graduates coming to India have been hindered by administrative
-                barriers. The sustainable solution is to graduate Indian citizens in
-                university programs within our own country.
-              </p>
-              <p>
-                This mission is vital to provide the ability to teach and graduate our own
-                chiropractors, but we need significant support from various sectors to succeed.
-              </p>
-            </div>
-
-            <div className="mt-12 grid gap-6 sm:grid-cols-2">
-              <div className="rounded-2xl bg-white p-6 shadow-soft">
-                <Heart className="h-6 w-6 text-primary" />
-                <h4 className="mt-4 font-bold">Donate Now</h4>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Financial contributions are the most direct way to promote education standards.
-                </p>
-              </div>
-              <div className="rounded-2xl bg-white p-6 shadow-soft">
-                <HelpingHand className="h-6 w-6 text-primary" />
-                <h4 className="mt-4 font-bold">Support In-Kind</h4>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Provide technical support or specialized equipment to teaching universities.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Banking Details side */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="rounded-[2.5rem] bg-white p-8 shadow-elegant md:p-12"
-          >
-            <div className="flex items-center gap-4 border-b pb-8">
+            <div className="flex items-center gap-4 border-b pb-6">
               <div className="grid h-12 w-12 place-items-center rounded-full bg-primary/10 text-primary">
                 <Landmark className="h-6 w-6" />
               </div>
               <div>
                 <h3 className="text-xl font-bold">Banking Details</h3>
-                <p className="text-sm text-muted-foreground">Direct Bank Transfer</p>
+                <p className="text-xs text-muted-foreground">Direct Bank Transfer</p>
               </div>
             </div>
 
-            <div className="mt-8 space-y-6">
+            <div className="mt-8 space-y-5">
               {[
                 { label: "Company Name", value: "CHIROPRACTIC INDIA" },
-                { label: "Experts", href: "#team" },
-                { label: "Information", href: "#information" },
-                { label: "Blog", href: "#blog" },
-                { label: "FAQ", href: "#faq" },
                 { label: "Bank Name", value: "IDFC FIRST" },
                 { label: "Branch", value: "BANGALORE RESIDENCY ROAD" },
                 { label: "IFSC Code", value: "IDFB 0080 151" },
               ].map((item, i) => (
-                <div key={i} className="flex flex-col gap-1 border-b border-slate-100 pb-4 last:border-0">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                <div key={i} className="flex flex-col gap-1 border-b border-slate-50 pb-3 last:border-0">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">
                     {item.label}
                   </span>
-                  <span className="font-mono text-lg font-medium tracking-tight text-slate-900">
+                  <span className="font-mono text-base font-medium tracking-tight text-slate-900">
                     {item.value}
                   </span>
                 </div>
               ))}
             </div>
+          </motion.div>
 
-            <div className="mt-10 border-t pt-10">
-              <h4 className="font-bold">Register Your Interest</h4>
-              <p className="text-xs text-muted-foreground">Join our mission to support Chiropractic education</p>
+          {/* Registration Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-7 rounded-[2.5rem] bg-white p-8 shadow-elegant md:p-10"
+          >
+            <h4 className="text-xl font-bold">Register Your Interest</h4>
+            <p className="mt-1 text-sm text-muted-foreground">Join our mission to support Chiropractic education</p>
 
-              <div className="mt-6 grid gap-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <input type="text" placeholder="Name" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
-                  <input type="email" placeholder="Email" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <input type="text" placeholder="Mobile Number" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
-                  <input type="text" placeholder="Country" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
-                </div>
-                <textarea placeholder="Specific interests or how you would like to support..." rows={3} className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-primary/50" />
+            <div className="mt-8 grid gap-4">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <input type="text" placeholder="Name" className="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-primary/50" />
+                <input type="email" placeholder="Email" className="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-primary/50" />
               </div>
-
-              <button className="mt-6 w-full rounded-full gradient-cta py-4 text-sm font-bold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.02] active:scale-[0.98]">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <input type="text" placeholder="Mobile Number" className="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-primary/50" />
+                <input type="text" placeholder="Country" className="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-primary/50" />
+              </div>
+              <textarea placeholder="How you would like to support..." rows={2} className="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-primary/50" />
+              
+              <button className="mt-2 w-full rounded-full gradient-cta py-4 text-sm font-bold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.02]">
                 SUBMIT REGISTRATION
               </button>
             </div>
@@ -1158,20 +1049,6 @@ export function Blog() {
       category: "Chiropractic Education",
       desc: "The collaborative relationship between surgical and non-surgical spinal care.",
     },
-    {
-      title: "Chiropractor and the Neurosurgeon",
-      date: "March 5, 2023",
-      author: "docJay",
-      category: "Chiropractic Education",
-      desc: "How integrated neurological care improves patient outcomes in complex spine cases.",
-    },
-    {
-      title: "Chiropractor and the Dentist",
-      date: "March 5, 2023",
-      author: "docJay",
-      category: "Chiropractic Education",
-      desc: "Addressing TMJ and jaw pain through a combined dental and chiropractic approach.",
-    },
   ];
 
   const categories = ["Chiropractic Care", "Chiropractic Condition", "Chiropractic Education", "Uncategorized"];
@@ -1270,3 +1147,164 @@ export function Blog() {
     </section>
   );
 }
+
+export function FacultyPositions() {
+  return (
+    <section id="faculty" className="relative overflow-hidden py-28 bg-white">
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Header Section */}
+        <div className="mb-20 text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-primary"
+          >
+            India/Foreign Registry Service
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mt-6 font-serif text-4xl md:text-5xl lg:text-6xl text-slate-900"
+          >
+            Faculty <em className="italic font-light">Positions</em>
+          </motion.h2>
+        </div>
+
+        <div className="grid gap-16 lg:grid-cols-12">
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-6 space-y-8"
+          >
+            <div className="space-y-6">
+              <h3 className="font-serif text-2xl md:text-3xl font-bold leading-tight text-primary">
+                Chiropractic & CBP Faculty Positions in Asia & Middle East
+              </h3>
+              <div className="space-y-4 text-lg leading-relaxed text-slate-600">
+                <p>
+                  As a chiropractic & CBP faculty pioneer, unlike a stagnant environment in America or Canada, 
+                  there is a wealth of opportunities to grow your knowledge base and teach as a pioneer. 
+                  Chiropractic is still in the development stages in most eastern countries and you will 
+                  be at the forefront of it all. <span className="font-bold text-slate-900">India, Philippines and Dubai need you.</span>
+                </p>
+                <p>
+                  Chiropractic is booming in the Asia, Far East and the Middle East. While it is relatively 
+                  young and still developing in Asia, it offers a challenging yet gratifying endeavor. 
+                  The rewards go beyond earning—it's an opportunity to bring chiropractic care and wellness 
+                  to a new culture as a faculty.
+                </p>
+                <p className="rounded-2xl bg-emerald-50/50 p-6 border-l-4 border-primary italic">
+                  "Join the adventure, the challenge, and the opportunity of a lifetime. Become the forerunners 
+                  to establish Chiropractic and CBP education as a faculty."
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-4 pt-4">
+              {["India", "Philippines", "Dubai (UAE)"].map((city) => (
+                <div key={city} className="flex items-center gap-2 rounded-full border border-emerald-100 bg-white px-5 py-2 text-sm font-medium text-slate-700 shadow-sm">
+                  <MapPin className="h-4 w-4 text-primary" />
+                  {city}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Registration Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-6"
+          >
+            <div className="rounded-[2.5rem] bg-slate-900 p-8 md:p-12 text-white shadow-elegant-large relative overflow-hidden">
+              {/* Subtle background glow */}
+              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary/20 blur-[80px]" />
+              
+              <div className="relative z-10">
+                <h4 className="text-2xl font-bold">Register Here</h4>
+                <p className="mt-2 text-sm text-slate-400">
+                  Please provide the requested information below with as much detail as possible. 
+                  Only completed forms will be considered.
+                </p>
+
+                <div className="mt-10 grid gap-5">
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Name</label>
+                      <input type="text" placeholder="Name*" className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-primary/50 transition-colors" />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Email</label>
+                      <input type="email" placeholder="Your email address*" className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-primary/50 transition-colors" />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Mobile</label>
+                      <input type="text" placeholder="Your Mobile Number*" className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-primary/50 transition-colors" />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Country</label>
+                      <input type="text" placeholder="Country you are from*" className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-primary/50 transition-colors" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Address</label>
+                    <input type="text" placeholder="Address*" className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-primary/50 transition-colors" />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Interests</label>
+                    <textarea rows={3} placeholder="Your specific way to support Chiropractic Education and other means/ways" className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none focus:border-primary/50 transition-colors" />
+                  </div>
+
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Attach Resume</label>
+                      <div className="relative group">
+                        <input type="file" className="absolute inset-0 opacity-0 cursor-pointer z-10" />
+                        <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-xs text-slate-400 group-hover:bg-white/10 transition-colors">
+                          <Plus className="h-4 w-4" /> Choose File
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Attach Photograph</label>
+                      <div className="relative group">
+                        <input type="file" className="absolute inset-0 opacity-0 cursor-pointer z-10" />
+                        <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-xs text-slate-400 group-hover:bg-white/10 transition-colors">
+                          <Plus className="h-4 w-4" /> Choose File
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button className="mt-4 w-full rounded-full gradient-cta py-4 text-sm font-bold text-primary-foreground shadow-elegant transition-transform hover:scale-[1.02] active:scale-[0.98]">
+                    SUBMIT APPLICATION
+                  </button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function SectionDivider() {
+  return (
+    <div className="mx-auto max-w-7xl px-6">
+      <div className="h-px w-full bg-slate-200/40" />
+    </div>
+  );
+}
+

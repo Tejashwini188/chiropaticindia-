@@ -7,13 +7,14 @@ import {
   Mission,
   Testimonials,
   Programs,
-  CommunityEvents,
   Team,
   Information,
   Blog,
   FAQ,
   CTA,
   Footer,
+  FacultyPositions,
+  SectionDivider,
 } from "@/components/site/Sections";
 
 export const Route = createFileRoute("/")({
@@ -49,16 +50,27 @@ function Index() {
     <main className="relative overflow-hidden bg-background">
       <Navbar />
       <Hero />
+      <SectionDivider />
       <About />
+      <SectionDivider />
       <Mission />
+      <SectionDivider />
       <Testimonials />
+      <SectionDivider />
       <Programs />
-      <CommunityEvents />
+      <SectionDivider />
       <Team />
+      <SectionDivider />
+      <FacultyPositions />
+      <SectionDivider />
       <Information />
+      <SectionDivider />
       <Blog />
+      <SectionDivider />
       <Fundraising />
+      <SectionDivider />
       <FAQ />
+      <SectionDivider />
       <CTA />
       <Footer />
     </main>
