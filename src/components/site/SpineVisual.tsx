@@ -4,21 +4,10 @@ import { motion } from 'framer-motion';
 
 export const SpineVisual = () => {
     return (
-        <div className="relative w-full aspect-[4/5] max-w-[520px] mx-auto">
-            {/* Main visual container - Matches the soft cyan/blue of original but in light green */}
-            <div className="absolute inset-0 bg-emerald-50/40 rounded-[2.5rem] overflow-hidden border border-emerald-100/30">
-                
-                {/* Grid Background - subtle and clean */}
-                <div className="absolute inset-0 opacity-[0.05]"
-                    style={{
-                        backgroundImage: `linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)`,
-                        backgroundSize: '40px 40px',
-                    }}
-                />
-
-                {/* Spine SVG Visualization - Using exact proportions from reference */}
-                <div className="absolute inset-0 flex items-center justify-center p-8">
-                    <svg viewBox="0 0 200 500" className="w-full h-full opacity-90 drop-shadow-xl">
+        <div className="relative mx-auto w-full max-w-[360px] aspect-[2/5]">
+            {/* Spine SVG Visualization — no surrounding box, fills full container height */}
+            <div className="absolute inset-0 flex items-center justify-center">
+                <svg viewBox="0 0 200 500" preserveAspectRatio="xMidYMid meet" className="h-full w-full opacity-95 drop-shadow-xl">
                         {/* Spine vertebrae - Exact values from reference code */}
                         {[
                             { y: 30, w: 28, h: 16, rx: 6 },
@@ -121,8 +110,7 @@ export const SpineVisual = () => {
                                 <stop offset="100%" stopColor="oklch(0.55 0.11 160)" stopOpacity="0" />
                             </radialGradient>
                         </defs>
-                    </svg>
-                </div>
+                </svg>
             </div>
         </div>
     );

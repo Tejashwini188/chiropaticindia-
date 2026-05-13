@@ -33,10 +33,17 @@ import {
   Check,
   ChevronDown,
   ExternalLink,
+  BookOpen,
+  Users,
+  Wallet,
+  Globe2,
 } from "lucide-react";
 import { useState } from "react";
-import mission from "@/assets/mission.jpg";
+import mission from "@/assets/about.png.jpeg";
 import docjay from "@/assets/docjay.png";
+import heroDoctor from "@/assets/hero-doctor.jpg";
+import eduCollaboration from "@/assets/edu-collaboration.jpg";
+import eduClassroom from "@/assets/edu-classroom.jpg";
 
 function SectionHeader({
   eyebrow,
@@ -1295,6 +1302,287 @@ export function FacultyPositions() {
             </div>
           </motion.div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+export function Education() {
+  const pillars = [
+    {
+      icon: BookOpen,
+      label: "Partnership",
+      title: "Collaborative Solutions",
+      desc: "The global expansion of chiropractic care is anchored in the collaboration between chiropractic leaders and organizations like the Chiropractic Diplomatic Corps (CDC).",
+      bg: eduCollaboration,
+    },
+    {
+      icon: Globe2,
+      label: "Global",
+      title: "Expanding Horizons",
+      desc: "In the realm of holistic and naturalistic healthcare, chiropractic stands as a pivotal profession, offering unduplicated specialized approaches to musculoskeletal and nervous system disorders.",
+      bg: heroDoctor,
+    },
+    {
+      icon: GraduationCap,
+      label: "Education",
+      title: "Tradition & Innovation",
+      desc: "In the intricate tapestry of healthcare, the CDC shines as a catalyst for change, especially in nations lacking formal university-based chiropractic programs.",
+      bg: eduClassroom,
+    },
+  ];
+
+  const threeP = [
+    {
+      icon: BookOpen,
+      letter: "Program",
+      desc: "The CDC has developed a Transnational Chiropractic Curriculum that meets and exceeds the International standards of Chiropractic Education.",
+    },
+    {
+      icon: Users,
+      letter: "People",
+      desc: "The CDC has engaged the Far East Chiropractic Recruitment agency to build a rigorous pool of qualified Chiropractic Educators.",
+    },
+    {
+      icon: Wallet,
+      letter: "Purses",
+      desc: "Funding opportunities span in-kind donations for equipment, scholarships, faculty recruitment, relocation, training, administration and operational expenses.",
+    },
+  ];
+
+  const colleges = [
+    {
+      country: "Philippines",
+      stripes: ["#0038A8", "#CE1126", "#FCD116"],
+      flag: (
+        <div className="relative h-full w-full overflow-hidden">
+          <div className="absolute inset-y-0 left-0 w-1/3 bg-[#0038A8]" style={{ clipPath: "polygon(0 0, 100% 50%, 0 100%)" }} />
+          <div className="absolute inset-x-0 top-0 h-1/2 bg-[#0038A8]" />
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[#CE1126]" />
+          <div className="absolute inset-y-0 left-0 w-[38%] bg-white" style={{ clipPath: "polygon(0 0, 100% 50%, 0 100%)" }} />
+          <span className="absolute left-[10%] top-1/2 -translate-y-1/2 text-[#FCD116] text-2xl">★</span>
+        </div>
+      ),
+    },
+    {
+      country: "India",
+      stripes: ["#FF9933", "#FFFFFF", "#138808"],
+      flag: (
+        <div className="flex h-full w-full flex-col">
+          <div className="h-1/3 bg-[#FF9933]" />
+          <div className="relative h-1/3 bg-white grid place-items-center">
+            <span className="text-[#000080] text-2xl leading-none">☼</span>
+          </div>
+          <div className="h-1/3 bg-[#138808]" />
+        </div>
+      ),
+    },
+    {
+      country: "Ethiopia",
+      stripes: ["#078930", "#FCDD09", "#DA121A"],
+      flag: (
+        <div className="flex h-full w-full flex-col">
+          <div className="h-1/3 bg-[#078930]" />
+          <div className="relative h-1/3 bg-[#FCDD09] grid place-items-center">
+            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full bg-[#0F47AF] text-[#FCDD09] text-xl">★</span>
+          </div>
+          <div className="h-1/3 bg-[#DA121A]" />
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <section id="education" className="relative overflow-hidden py-28">
+      <div className="absolute -left-32 top-40 h-[420px] w-[420px] rounded-full bg-primary/5 blur-[120px]" />
+      <div className="absolute -right-32 bottom-40 h-[360px] w-[360px] rounded-full bg-primary/10 blur-[100px]" />
+
+      <div className="relative mx-auto max-w-7xl px-6">
+        <SectionHeader
+          eyebrow="International Education"
+          title={<>Chiropractic <em className="italic font-light">Education</em> Without Borders</>}
+          desc="The time has come to rely on local initiatives in each qualified country to establish the first Chiropractic College in underserved regions."
+        />
+
+        {/* Intro card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mt-12 max-w-4xl rounded-[2.5rem] glass-strong p-8 shadow-elegant md:p-12"
+        >
+          <div className="flex flex-col items-start gap-6 md:flex-row md:items-center">
+            <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl gradient-primary text-primary-foreground shadow-glow">
+              <GraduationCap className="h-8 w-8" strokeWidth={1.5} />
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Our Charter</p>
+              <p className="mt-3 text-base leading-relaxed text-slate-700">
+                Your help is needed in developing the resources and personnel that will establish an
+                International-level chiropractic education program in countries we are engaged with across
+                Africa, the Far East and beyond. Local citizens dedicated to this mission, investing in
+                their future, paired with international partners providing technical know-how, teaching and
+                equipment.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Three Pillar Cards */}
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {pillars.map((p, i) => (
+            <motion.article
+              key={p.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="group flex flex-col overflow-hidden rounded-[2rem] border border-border bg-card shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
+            >
+              {/* Top: full-bleed image with label tag in the corner */}
+              <div className="relative aspect-[5/3] w-full overflow-hidden">
+                <img
+                  src={p.bg}
+                  alt={p.title}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-black/35 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur">
+                  <p.icon className="h-3.5 w-3.5" />
+                  {p.label}
+                </div>
+              </div>
+
+              {/* Bottom: white content panel */}
+              <div className="flex flex-1 flex-col p-8">
+                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                  Initiative · {p.label}
+                </span>
+                <h3 className="mt-3 font-serif text-2xl leading-tight text-foreground">
+                  {p.title}
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {p.desc}
+                </p>
+                <a
+                  href="#"
+                  className="mt-8 inline-flex items-center gap-3 text-sm font-semibold text-primary"
+                >
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-primary text-primary transition-all group-hover:bg-primary group-hover:text-primary-foreground">
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                  Find out more
+                </a>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+
+        {/* The Three P's */}
+        <div className="mt-24">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">The Three P's</span>
+            <h3 className="mt-3 font-serif text-3xl md:text-4xl">
+              Building <em className="italic font-light">global</em> programs
+            </h3>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {threeP.map((p, i) => (
+              <motion.div
+                key={p.letter}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="relative rounded-3xl glass p-7 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl gradient-cta text-primary-foreground">
+                    <p.icon className="h-5 w-5" />
+                  </span>
+                  <h4 className="font-serif text-2xl">{p.letter}</h4>
+                </div>
+                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Adopt a College */}
+        <div className="mt-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mx-auto max-w-2xl text-center"
+          >
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Sponsor a Nation</span>
+            <h3 className="mt-3 font-serif text-4xl md:text-5xl">
+              Adopt a <em className="italic font-light">College</em>
+            </h3>
+            <p className="mt-4 text-muted-foreground">
+              Please select the country program you wish to support.
+            </p>
+          </motion.div>
+
+          <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-3">
+            {colleges.map((c, i) => (
+              <motion.button
+                key={c.country}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group flex flex-col items-center rounded-[2rem] border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-2 hover:shadow-elegant"
+              >
+                <div className="aspect-[5/3] w-full overflow-hidden rounded-2xl ring-1 ring-border shadow-soft">
+                  {c.flag}
+                </div>
+                <p className="mt-6 font-serif text-xl">{c.country}</p>
+                <span className="mt-5 inline-flex items-center gap-2 rounded-full gradient-cta px-5 py-2.5 text-xs font-bold tracking-widest uppercase text-primary-foreground shadow-elegant transition-transform group-hover:scale-[1.04]">
+                  Support {c.country} <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </motion.button>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative mt-24 overflow-hidden rounded-[2.5rem] gradient-cta p-10 text-primary-foreground shadow-elegant md:p-14"
+        >
+          <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-primary-glow/30 blur-3xl" />
+          <div className="absolute -left-24 -bottom-24 h-80 w-80 rounded-full bg-primary-glow/20 blur-3xl" />
+          <div className="relative grid items-center gap-8 md:grid-cols-[1fr_auto]">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] opacity-80">Get Involved</p>
+              <h3 className="mt-3 font-serif text-3xl md:text-4xl">
+                Help launch the first Chiropractic College in India.
+              </h3>
+              <p className="mt-4 max-w-xl text-primary-foreground/80">
+                Partner with us as a faculty member, donor, or curriculum collaborator. Together we will
+                graduate the next generation of Indian chiropractors.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 md:justify-end">
+              <a
+                href="#faculty"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-primary transition-transform hover:scale-[1.03]"
+              >
+                Faculty Positions <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="#fundraising"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-medium text-primary-foreground backdrop-blur transition-colors hover:bg-white/20"
+              >
+                Donate
+              </a>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
