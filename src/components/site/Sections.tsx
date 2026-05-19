@@ -37,6 +37,15 @@ import {
   Users,
   Wallet,
   Globe2,
+  Cpu,
+  Network,
+  GraduationCap as Graduation,
+  Building2,
+  Rocket,
+  Phone,
+  CheckCircle2,
+  ScrollText,
+  ShieldCheck,
 } from "lucide-react";
 import { useState } from "react";
 import mission from "@/assets/about.png.jpeg";
@@ -44,6 +53,10 @@ import docjay from "@/assets/docjay.png";
 import heroDoctor from "@/assets/hero-doctor.jpg";
 import eduCollaboration from "@/assets/edu-collaboration.jpg";
 import eduClassroom from "@/assets/edu-classroom.jpg";
+import collegeHero from "@/assets/college-hero.jpg";
+import collegeAi from "@/assets/college-ai.jpg";
+import collegeFaculty from "@/assets/college-faculty.jpg";
+import collegeGlobe from "@/assets/college-globe.jpg";
 
 function SectionHeader({
   eyebrow,
@@ -1583,6 +1596,555 @@ export function Education() {
             </div>
           </div>
         </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export function College() {
+  const highlights = [
+    { icon: Calendar, t: "August 2026", d: "Inaugural cohort launch" },
+    { icon: Users, t: "~30 Fellows", d: "International + Indian" },
+    { icon: Graduation, t: "6-Year Masters", d: "Fellowship pathway" },
+    { icon: Globe2, t: "4 Nations", d: "India · Philippines · Nigeria · Ethiopia" },
+  ];
+
+  const aiFeatures = [
+    {
+      icon: Cpu,
+      t: "Encrypted AI Layer",
+      d: "Proprietary AI stack powers an adaptive learning experience while protecting curriculum IP end-to-end.",
+    },
+    {
+      icon: Network,
+      t: "Hybrid Virtual Labs",
+      d: "AI-assisted virtual labs deliver consistent, high-standard practicals across borders.",
+    },
+    {
+      icon: Building2,
+      t: "Dr Spine© Internship Hubs",
+      d: "Dr Spine India HQ centers serve as dedicated hands-on clinical hubs for Fellows.",
+    },
+    {
+      icon: ShieldCheck,
+      t: "Curriculum as IP",
+      d: "International standards baked into a transnational curriculum, governed by Chiropractic India®.",
+    },
+  ];
+
+  const programPillars = [
+    {
+      icon: ScrollText,
+      t: "Faculty Training Program",
+      d: "India's first FTP — preparing graduates to teach the 6-year Masters Fellowship and seed colleges abroad.",
+    },
+    {
+      icon: Graduation,
+      t: "Masters Fellowship",
+      d: "A structured academic pathway producing Indian Doctors of Chiropractic ready for clinical and academic leadership.",
+    },
+    {
+      icon: ShieldCheck,
+      t: "Professional Association",
+      d: "A national body to legalize and govern the profession in partnership with the Federal Government.",
+    },
+  ];
+
+  const countries = [
+    { name: "India", role: "Academic Hub & HQ" },
+    { name: "Philippines", role: "Inaugural Cohort" },
+    { name: "Nigeria", role: "Inaugural Cohort" },
+    { name: "Ethiopia", role: "Inaugural Cohort" },
+  ];
+
+  const timeline = [
+    {
+      t: "Curriculum Architecture",
+      d: "Transnational Chiropractic Curriculum finalized with SSU's AI-supported platform, anchored at CI® Bangalore.",
+      done: true,
+    },
+    {
+      t: "Faculty Recruitment",
+      d: "International chiropractic educators onboarded; Dr Spine© centers nominated as clinical hubs.",
+      done: true,
+    },
+    {
+      t: "August 2026 — Inaugural Cohort",
+      d: "~30 fellows from India, Philippines, Nigeria and Ethiopia begin the FTP and Masters pathway.",
+      done: false,
+    },
+    {
+      t: "Global Faculty Network",
+      d: "Graduates seed new chiropractic colleges across underserved regions, with India as the academic epicenter.",
+      done: false,
+    },
+  ];
+
+  return (
+    <section id="college" className="relative overflow-hidden py-28">
+      {/* Ambient backgrounds */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-32 left-1/4 h-[420px] w-[420px] rounded-full bg-primary/10 blur-[120px]" />
+        <div className="absolute bottom-0 -right-32 h-[480px] w-[480px] rounded-full bg-primary/5 blur-[140px]" />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-6">
+        {/* === HERO === */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid items-center gap-12 lg:grid-cols-12"
+        >
+          <div className="lg:col-span-7">
+            <span className="inline-flex items-center gap-2 rounded-full bg-secondary/70 px-4 py-2 text-sm font-medium text-primary">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+              India's Own Chiropractic College — by Chiropractic India®
+            </span>
+
+            <h2 className="mt-6 font-serif text-4xl leading-[1.05] tracking-tight md:text-5xl lg:text-[3.5rem]">
+              Global Chiropractic{" "}
+              <em className="italic font-light text-primary">Education</em>{" "}
+              Lands in India — Powered by an AI-Supported Academic Platform
+            </h2>
+
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              A new phase in global chiropractic education is taking shape in India. Chiropractic India®
+              is launching its <strong className="font-semibold text-foreground">Faculty Training Program</strong> to
+              develop local graduates to teach the <strong className="font-semibold text-foreground">6-year Masters Fellowship</strong>{" "}
+              — India's own School and College for Chiropractic education, alongside a professional body
+              to govern and legalize the profession nationwide.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href="mailto:info@chiropracticindia.com"
+                className="group inline-flex items-center gap-2 rounded-full gradient-cta px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-elegant transition-all hover:scale-[1.03] hover:shadow-glow"
+              >
+                Apply for the FTP
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <a
+                href="#college-contact"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+              >
+                Talk to the Team
+              </a>
+            </div>
+          </div>
+
+          <div className="relative lg:col-span-5">
+            <div className="relative aspect-[5/6] overflow-hidden rounded-[2.5rem] shadow-elegant">
+              <img
+                src={collegeHero}
+                alt="University lecture hall"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/15 to-transparent" />
+              <div className="absolute inset-x-6 bottom-6 rounded-2xl bg-white/95 p-5 backdrop-blur">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                  Inaugural Cohort
+                </p>
+                <p className="mt-1 font-serif text-2xl leading-tight text-foreground">
+                  August 2026 · CI® Bangalore
+                </p>
+              </div>
+            </div>
+            <div className="absolute -bottom-8 -left-8 hidden h-32 w-32 rounded-full bg-[radial-gradient(closest-side,_oklch(0.78_0.14_150_/_0.5),_transparent)] md:block" />
+          </div>
+        </motion.div>
+
+        {/* === HIGHLIGHT STATS === */}
+        <div className="mt-20 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {highlights.map((h, i) => (
+            <motion.div
+              key={h.t}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className="rounded-3xl glass p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
+            >
+              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-secondary text-primary">
+                <h.icon className="h-5 w-5" />
+              </span>
+              <p className="mt-5 font-serif text-2xl font-semibold text-primary">{h.t}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{h.d}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* === AI FRAMEWORK === */}
+        <div className="mt-28 grid items-center gap-12 lg:grid-cols-12">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-5"
+          >
+            <div className="relative aspect-square overflow-hidden rounded-[2.5rem] shadow-elegant">
+              <img
+                src={collegeAi}
+                alt="AI-supported academic platform"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-slate-900/30" />
+              <div className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-primary backdrop-blur">
+                <Cpu className="h-3.5 w-3.5" />
+                AI-Driven Framework
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-7"
+          >
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              Sri Sri University Partnership
+            </span>
+            <h3 className="mt-3 font-serif text-3xl md:text-4xl">
+              An <em className="italic font-light">AI-supported</em> learning platform built for chiropractic faculty
+            </h3>
+            <p className="mt-5 leading-relaxed text-muted-foreground">
+              SSU's hybrid AI learning platform — powered by CI®'s encrypted AI technology — provides a
+              seamless digital environment for global academic management. The system integrates virtual
+              labs and AI-assisted tools to deliver consistent, high-standard curriculum as proprietary
+              intellectual property.
+            </p>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {aiFeatures.map((f) => (
+                <div
+                  key={f.t}
+                  className="group rounded-2xl border border-border bg-card p-5 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
+                >
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <f.icon className="h-5 w-5" />
+                  </span>
+                  <p className="mt-4 font-semibold">{f.t}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{f.d}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* === PROGRAM PILLARS === */}
+        <div className="mt-28">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              The Programme
+            </span>
+            <h3 className="mt-3 font-serif text-4xl md:text-5xl">
+              A <em className="italic font-light">first-of-its-kind</em> structure for India
+            </h3>
+            <p className="mt-5 text-muted-foreground">
+              Conceived by <strong className="font-semibold text-foreground">Prof Dr Jayul Doshi</strong> — Founder of
+              Chiropractic India® and Professor of Clinical Sciences at SSU — the programme creates a
+              structured academic pathway for chiropractors as both clinicians and academics.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {programPillars.map((p, i) => (
+              <motion.article
+                key={p.t}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative overflow-hidden rounded-[2rem] border border-border bg-card p-8 transition-all hover:-translate-y-1 hover:shadow-elegant"
+              >
+                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[radial-gradient(closest-side,_oklch(0.78_0.14_150_/_0.25),_transparent)] transition-transform group-hover:scale-125" />
+                <span className="grid h-12 w-12 place-items-center rounded-2xl gradient-cta text-primary-foreground shadow-elegant">
+                  <p.icon className="h-5 w-5" />
+                </span>
+                <h4 className="mt-6 font-serif text-2xl leading-tight">{p.t}</h4>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.d}</p>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+
+        {/* === INTERNATIONAL FACULTY NETWORK === */}
+        <div className="mt-28 grid items-center gap-12 lg:grid-cols-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-7"
+          >
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              International Faculty Network
+            </span>
+            <h3 className="mt-3 font-serif text-3xl md:text-4xl">
+              India as the <em className="italic font-light">epicenter</em> of a global academic network
+            </h3>
+            <p className="mt-5 leading-relaxed text-muted-foreground">
+              The inaugural FTP cohort goes live in <strong className="font-semibold text-foreground">August 2026</strong>{" "}
+              with approximately thirty international participants alongside Indian students. Apart from the
+              post-graduate diploma, graduates are also certified as faculty — ready to seed chiropractic
+              programs back home.
+            </p>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {countries.map((c) => (
+                <div
+                  key={c.name}
+                  className="flex items-center gap-4 rounded-2xl bg-card p-4 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
+                >
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary">
+                    <MapPin className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <p className="font-semibold">{c.name}</p>
+                    <p className="text-xs text-muted-foreground">{c.role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative lg:col-span-5"
+          >
+            <div className="relative aspect-square overflow-hidden rounded-[2.5rem] shadow-elegant">
+              <img
+                src={collegeGlobe}
+                alt="Global academic network"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-primary/10 to-transparent mix-blend-multiply" />
+              <div className="absolute inset-x-6 bottom-6 rounded-2xl bg-white/95 p-5 backdrop-blur">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                  Headquartered at
+                </p>
+                <p className="mt-1 font-serif text-xl leading-tight">CI® Bangalore, India</p>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Dr Spine© centers as dedicated internship hubs
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* === ROADMAP === */}
+        <div className="mt-28">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Looking Ahead</span>
+            <h3 className="mt-3 font-serif text-4xl md:text-5xl">
+              The road to <em className="italic font-light">August 2026</em>
+            </h3>
+          </div>
+
+          <div className="mt-14 grid gap-12 lg:grid-cols-12">
+            {/* Timeline column */}
+            <div className="relative lg:col-span-7">
+              <div className="absolute left-5 top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-primary/30 to-transparent" />
+              <ol className="space-y-8">
+                {timeline.map((m, i) => (
+                  <motion.li
+                    key={m.t}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08 }}
+                    className="relative grid grid-cols-[2.5rem_1fr] gap-6"
+                  >
+                    <span
+                      className={`relative z-10 grid h-10 w-10 place-items-center rounded-full ring-4 ring-background ${
+                        m.done
+                          ? "bg-primary text-primary-foreground shadow-glow"
+                          : "bg-card border border-primary text-primary"
+                      }`}
+                    >
+                      {m.done ? <CheckCircle2 className="h-5 w-5" /> : <Rocket className="h-5 w-5" />}
+                    </span>
+                    <div className="rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant">
+                      <div className="flex items-center gap-3">
+                        <h4 className="font-serif text-xl">{m.t}</h4>
+                        {m.done && (
+                          <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest text-primary">
+                            Done
+                          </span>
+                        )}
+                      </div>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{m.d}</p>
+                    </div>
+                  </motion.li>
+                ))}
+              </ol>
+            </div>
+
+            {/* Right creative panel — sticky launch card */}
+            <motion.aside
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-5"
+            >
+              <div className="sticky top-28 overflow-hidden rounded-[2.5rem] shadow-elegant">
+                {/* Background image */}
+                <div className="relative aspect-[4/5] w-full">
+                  <img
+                    src={collegeFaculty}
+                    alt="Future cohort"
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  {/* Deep gradient overlay so the typography pops */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/55 to-slate-900/80 mix-blend-multiply" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+
+                  {/* Decorative vertical AUG/2026 ticker on the right edge */}
+                  <div className="absolute right-3 top-1/2 hidden -translate-y-1/2 rotate-180 text-[10px] font-bold uppercase tracking-[0.4em] text-white/40 [writing-mode:vertical-rl] md:block">
+                    Inaugural · CI® Bangalore · India HQ
+                  </div>
+
+                  {/* Top "T-minus" pill */}
+                  <div className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md ring-1 ring-white/20">
+                    <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                    Launch · August 2026
+                  </div>
+
+                  {/* Big serif date — the hero of the card */}
+                  <div className="absolute inset-x-6 top-1/2 -translate-y-[58%] text-white">
+                    <p className="font-serif text-7xl leading-none tracking-tight md:text-8xl">
+                      Aug
+                    </p>
+                    <p className="-mt-2 font-serif text-7xl leading-none tracking-tight md:text-8xl">
+                      <em className="italic font-light">2026</em>
+                    </p>
+                    <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/85">
+                      The inaugural Faculty Training Program goes live — and India becomes an epicenter of
+                      global chiropractic education.
+                    </p>
+                  </div>
+
+                  {/* Bottom stat strip */}
+                  <div className="absolute inset-x-6 bottom-6 grid grid-cols-3 gap-3 rounded-2xl bg-white/95 p-4 backdrop-blur">
+                    {[
+                      { v: "30", l: "Fellows" },
+                      { v: "4", l: "Nations" },
+                      { v: "6yr", l: "Masters" },
+                    ].map((s) => (
+                      <div key={s.l} className="text-center">
+                        <p className="font-serif text-2xl font-semibold text-primary">{s.v}</p>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground">
+                          {s.l}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Below image: progress meter */}
+                <div className="bg-card p-6">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+                      Programme Readiness
+                    </p>
+                    <p className="text-sm font-semibold text-foreground">50%</p>
+                  </div>
+                  <div className="mt-3 h-2 overflow-hidden rounded-full bg-secondary">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "50%" }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.2, ease: "easeOut" }}
+                      className="h-full rounded-full gradient-cta"
+                    />
+                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                    2 of 4 milestones complete · curriculum & faculty in place
+                  </p>
+                </div>
+              </div>
+            </motion.aside>
+          </div>
+        </div>
+
+        {/* === FACULTY / COLLABORATION TEASER === */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-28 grid items-center gap-10 overflow-hidden rounded-[2.5rem] border border-border bg-card p-8 shadow-soft md:p-12 lg:grid-cols-12"
+        >
+          <div className="lg:col-span-7">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              Faculty Collaboration
+            </span>
+            <h3 className="mt-3 font-serif text-3xl md:text-4xl">
+              Become a founding faculty of India's first chiropractic college
+            </h3>
+            <p className="mt-5 leading-relaxed text-muted-foreground">
+              Chiropractic India® serves as the mentor of the profession, partners with the Federal
+              Government on regulation, and contributes its international curriculum framework, faculty
+              development pipeline, and global academic network. Faculty applications and partnerships
+              are open year-round.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href="#faculty"
+                className="group inline-flex items-center gap-2 rounded-full gradient-cta px-6 py-3.5 text-sm font-medium text-primary-foreground shadow-elegant transition-all hover:scale-[1.03] hover:shadow-glow"
+              >
+                Apply to Teach
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <a
+                href="#fundraising"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+              >
+                Support the College
+              </a>
+            </div>
+          </div>
+          <div className="lg:col-span-5">
+            <div className="relative aspect-[5/4] overflow-hidden rounded-3xl shadow-elegant">
+              <img
+                src={collegeFaculty}
+                alt="Faculty collaborating"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* === CONTACT === */}
+        <div id="college-contact" className="mt-20 grid gap-4 rounded-[2.5rem] gradient-cta p-10 text-primary-foreground shadow-elegant md:grid-cols-[1fr_auto] md:items-center md:p-14">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] opacity-80">Get In Touch</p>
+            <h3 className="mt-3 font-serif text-3xl md:text-4xl">
+              Questions about the FTP, partnerships or admissions?
+            </h3>
+            <p className="mt-3 max-w-xl text-primary-foreground/80">
+              Further updates will be shared as program planning progresses. In the meantime, the team
+              welcomes all queries.
+            </p>
+          </div>
+          <div className="flex flex-col gap-3">
+            <a
+              href="mailto:info@chiropracticindia.com"
+              className="inline-flex items-center justify-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-primary transition-transform hover:scale-[1.02]"
+            >
+              <Mail className="h-4 w-4" />
+              info@chiropracticindia.com
+            </a>
+            <a
+              href="tel:+916344047575"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-white/30 bg-white/10 px-6 py-3.5 text-sm font-semibold text-primary-foreground backdrop-blur transition-colors hover:bg-white/20"
+            >
+              <Phone className="h-4 w-4" />
+              +91 634 404 7575
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -15,6 +15,7 @@ import {
   Footer,
   FacultyPositions,
   Education,
+  College,
   SectionDivider,
 } from "@/components/site/Sections";
 
@@ -57,6 +58,8 @@ function Index() {
       <Mission />
       <SectionDivider />
       <Education />
+      <SectionDivider />
+      <College />
       <SectionDivider />
       <Testimonials />
       <SectionDivider />
