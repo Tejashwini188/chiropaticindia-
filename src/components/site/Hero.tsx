@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, UsersRound, MapPin } from "lucide-react";
+import { ArrowRight, Sparkles, UsersRound } from "lucide-react";
 import { SpineVisual } from "./SpineVisual";
 
 const stats = [
@@ -15,7 +15,7 @@ const chips = [
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pt-24 pb-16 md:pt-28 md:pb-20">
+    <section id="home" className="relative overflow-hidden pt-10 pb-16 md:pt-14 md:pb-20">
       {/* ambient backgrounds */}
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -top-40 -left-40 h-[40rem] w-[40rem] rounded-full bg-[radial-gradient(closest-side,_oklch(0.85_0.12_150_/_0.45),_transparent)]" />

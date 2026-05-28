@@ -1406,23 +1406,37 @@ export function Education() {
   ];
 
   return (
-    <section id="education" className="relative overflow-hidden py-28">
+    <section id="education" className="relative overflow-hidden pt-10 pb-28 md:pt-14">
       <div className="absolute -left-32 top-40 h-[420px] w-[420px] rounded-full bg-primary/5 blur-[120px]" />
       <div className="absolute -right-32 bottom-40 h-[360px] w-[360px] rounded-full bg-primary/10 blur-[100px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
-        <SectionHeader
-          eyebrow="International Education"
-          title={<>Chiropractic <em className="italic font-light">Education</em> Without Borders</>}
-          desc="The time has come to rely on local initiatives in each qualified country to establish the first Chiropractic College in underserved regions."
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-7xl text-center"
+        >
+          <span className="inline-flex items-center gap-2 rounded-full bg-secondary/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-primary">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            International Education
+          </span>
+          <h2 className="mt-6 font-serif font-bold text-4xl leading-[1.05] tracking-tight sm:text-5xl md:text-6xl xl:text-[4.5rem] xl:whitespace-nowrap">
+            Chiropractic <em className="italic font-light text-primary">Education</em> Without Borders
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
+            The time has come to rely on local initiatives in each qualified country to establish the
+            first Chiropractic College in underserved regions.
+          </p>
+        </motion.div>
 
         {/* Intro card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto mt-12 max-w-4xl rounded-[2.5rem] glass-strong p-8 shadow-elegant md:p-12"
+          className="mx-auto mt-12 max-w-7xl rounded-[2.5rem] glass-strong p-8 shadow-elegant md:p-12"
         >
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-center">
             <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl gradient-primary text-primary-foreground shadow-glow">
@@ -1680,6 +1694,83 @@ export function College() {
     },
   ];
 
+  const partners = [
+    { name: "Sri Sri University", role: "Academic Partner" },
+    { name: "Dr Spine© India", role: "Clinical Internship Hubs" },
+    { name: "Far East Chiro Research®", role: "Research Wing" },
+    { name: "Asian Institute of Scoliosis®", role: "Specialty Center" },
+    { name: "Dr Posture©", role: "Posture Care Network" },
+  ];
+
+  const gallery = [
+    {
+      src: collegeHero,
+      title: "Lecture Halls",
+      caption: "Tiered auditoriums at CI® Bangalore",
+      span: "lg:col-span-2 lg:row-span-2",
+    },
+    { src: eduClassroom, title: "Smart Classrooms", caption: "AI-augmented studios", span: "" },
+    { src: collegeAi, title: "AI Simulation Labs", caption: "Virtual anatomy & adjustment sims", span: "" },
+    { src: eduCollaboration, title: "Collaboration Studios", caption: "Cross-border cohort spaces", span: "" },
+    { src: collegeFaculty, title: "Clinical Internship Hubs", caption: "Dr Spine© centers, India", span: "" },
+  ];
+
+  const journey = [
+    { year: "Year 1", title: "Foundations", desc: "Anatomy, physiology, biomechanics & introduction to chiropractic principles." },
+    { year: "Year 2", title: "Clinical Sciences", desc: "Pathology, neurology, radiology & orthopaedic assessment." },
+    { year: "Year 3", title: "Adjustive Technique", desc: "Diversified, Gonstead & instrument-assisted adjusting protocols." },
+    { year: "Year 4", title: "AI Diagnostics", desc: "Advanced imaging, AI-assisted diagnostics & case planning." },
+    { year: "Year 5", title: "Clinical Internship", desc: "Hands-on rotation across Dr Spine© India HQ centers." },
+    { year: "Year 6", title: "Masters & Faculty", desc: "Capstone research, teaching practicum & faculty certification." },
+  ];
+
+  const facilities = [
+    {
+      icon: BookOpen,
+      title: "Smart Classrooms",
+      desc: "AI-augmented lecture rooms with live transcription, capture and contextual Q&A.",
+      img: eduClassroom,
+    },
+    {
+      icon: Cpu,
+      title: "AI Simulation Labs",
+      desc: "Virtual anatomy, gait analysis & adjustment simulation suites.",
+      img: collegeAi,
+    },
+    {
+      icon: Building2,
+      title: "Clinical Internship Hubs",
+      desc: "Dr Spine© centers across India serve as supervised clinic floors.",
+      img: collegeFaculty,
+    },
+    {
+      icon: Network,
+      title: "Research Wing",
+      desc: "Far East Chiro Research® partnership for peer-reviewed publications.",
+      img: collegeGlobe,
+    },
+    {
+      icon: UsersRound,
+      title: "Collaboration Studios",
+      desc: "Hybrid spaces designed for international cohort learning.",
+      img: eduCollaboration,
+    },
+    {
+      icon: ShieldCheck,
+      title: "Posture & Scoliosis Center",
+      desc: "Specialty units linked with Asian Institute of Scoliosis® & Dr Posture©.",
+      img: collegeHero,
+    },
+  ];
+
+  const founderRoles = [
+    "Professor of Allied Health Science — SSU",
+    "Founder · Chiropractic India®",
+    "Founder · Dr Spine© India",
+    "Asian Institute of Scoliosis® · Dr Posture©",
+    "Far East Chiro Research®",
+  ];
+
   return (
     <section id="college" className="relative overflow-hidden py-28">
       {/* Ambient backgrounds */}
@@ -1754,8 +1845,40 @@ export function College() {
           </div>
         </motion.div>
 
+        {/* === TRUST / PARTNERS STRIP === */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 overflow-hidden rounded-[2rem] border border-border bg-card/60 px-6 py-7 shadow-soft backdrop-blur md:px-10"
+        >
+          <div className="flex flex-col items-start gap-5 md:flex-row md:items-center md:justify-between">
+            <div className="flex items-center gap-3">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-primary/10 text-primary">
+                <Handshake className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-primary">
+                  In Partnership With
+                </p>
+                <p className="text-sm text-muted-foreground">A coalition of universities, clinics and research bodies</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              {partners.map((p) => (
+                <div key={p.name} className="flex flex-col">
+                  <span className="font-serif text-base text-foreground">{p.name}</span>
+                  <span className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">
+                    {p.role}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
         {/* === HIGHLIGHT STATS === */}
-        <div className="mt-20 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {highlights.map((h, i) => (
             <motion.div
               key={h.t}
@@ -1772,6 +1895,120 @@ export function College() {
               <p className="mt-1 text-sm text-muted-foreground">{h.d}</p>
             </motion.div>
           ))}
+        </div>
+
+        {/* === CAMPUS GALLERY === */}
+        <div className="mt-28">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+                Inside the Campus
+              </span>
+              <h3 className="mt-3 font-serif text-4xl md:text-5xl">
+                Where <em className="italic font-light">global standards</em> meet Indian craftsmanship
+              </h3>
+              <p className="mt-4 text-muted-foreground">
+                CI® Bangalore is being purpose-built for chiropractic education — tiered auditoriums,
+                AI-augmented studios, simulation labs and clinical floors operated alongside Dr Spine©
+                India HQ centers.
+              </p>
+            </div>
+            <a
+              href="#college-contact"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-3 text-sm font-medium transition-colors hover:bg-secondary"
+            >
+              Book a Campus Visit
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 lg:grid-rows-2">
+            {gallery.map((g, i) => (
+              <motion.figure
+                key={g.title}
+                initial={{ opacity: 0, scale: 0.96 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                className={`group relative overflow-hidden rounded-2xl shadow-soft transition-all hover:shadow-elegant ${g.span} ${i === 0 ? "col-span-2 row-span-2 aspect-square sm:aspect-auto" : "aspect-[4/5]"}`}
+              >
+                <img
+                  src={g.src}
+                  alt={g.title}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-slate-900/10 to-transparent" />
+                <figcaption className="absolute inset-x-4 bottom-4 text-white">
+                  <p className="font-serif text-base md:text-lg leading-tight">{g.title}</p>
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-white/75">{g.caption}</p>
+                </figcaption>
+              </motion.figure>
+            ))}
+
+            {/* "+24" tile — view-all CTA */}
+            <motion.a
+              href="#college-contact"
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35 }}
+              className="group relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-2xl gradient-cta text-primary-foreground shadow-elegant transition-all hover:shadow-glow"
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_50%_0%,_rgba(255,255,255,0.18),_transparent_55%)]" />
+              <div className="relative text-center">
+                <p className="font-serif text-5xl font-semibold tracking-tight md:text-6xl">+24</p>
+                <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.25em] opacity-90">
+                  More Photos
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium opacity-90 transition-transform group-hover:translate-x-0.5">
+                  Explore Gallery <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </div>
+            </motion.a>
+          </div>
+        </div>
+
+        {/* === 6-YEAR JOURNEY === */}
+        <div className="mt-28">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              The Six-Year Journey
+            </span>
+            <h3 className="mt-3 font-serif text-4xl md:text-5xl">
+              A <em className="italic font-light">structured pathway</em> from foundations to faculty
+            </h3>
+            <p className="mt-4 text-muted-foreground">
+              Every year builds on the last — anchored in international curriculum, taught with AI
+              tooling, and finished as a certified Doctor of Chiropractic ready to teach.
+            </p>
+          </div>
+
+          <div className="relative mt-14">
+            <div className="hidden lg:block absolute left-0 right-0 top-7 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6 lg:gap-3">
+              {journey.map((y, i) => (
+                <motion.div
+                  key={y.year}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06 }}
+                  className="relative rounded-2xl border border-border bg-card p-5 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground font-semibold shadow-glow">
+                      {i + 1}
+                    </span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+                      {y.year}
+                    </span>
+                  </div>
+                  <p className="mt-4 font-serif text-lg leading-tight">{y.title}</p>
+                  <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground">{y.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* === AI FRAMEWORK === */}
@@ -1830,6 +2067,52 @@ export function College() {
               ))}
             </div>
           </motion.div>
+        </div>
+
+        {/* === FACILITIES / WHAT WE PROVIDE === */}
+        <div className="mt-28">
+          <div className="mx-auto max-w-2xl text-center">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              What We Provide
+            </span>
+            <h3 className="mt-3 font-serif text-4xl md:text-5xl">
+              World-class <em className="italic font-light">facilities</em>, built around the learner
+            </h3>
+            <p className="mt-4 text-muted-foreground">
+              Every facility is designed to deliver hands-on confidence — from your first lecture to
+              your first patient. This is the infrastructure backing your six-year journey.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {facilities.map((f, i) => (
+              <motion.article
+                key={f.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.06 }}
+                className="group overflow-hidden rounded-[1.75rem] border border-border bg-card shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img
+                    src={f.img}
+                    alt={f.title}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/55 via-transparent to-transparent" />
+                  <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-primary backdrop-blur">
+                    <f.icon className="h-3.5 w-3.5" />
+                    Campus Facility
+                  </span>
+                </div>
+                <div className="p-6">
+                  <h4 className="font-serif text-xl leading-tight">{f.title}</h4>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </div>
 
         {/* === PROGRAM PILLARS === */}
@@ -1933,6 +2216,78 @@ export function College() {
             </div>
           </motion.div>
         </div>
+
+        {/* === FOUNDER SPOTLIGHT === */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-28 overflow-hidden rounded-[2.5rem] border border-border bg-card shadow-soft"
+        >
+          <div className="grid lg:grid-cols-12">
+            {/* Portrait */}
+            <div className="relative lg:col-span-5">
+              <div className="relative h-full min-h-[420px] overflow-hidden">
+                <img
+                  src={docjay}
+                  alt="Prof. Dr. Jayul Doshi"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-transparent to-transparent mix-blend-multiply" />
+                <div className="absolute left-6 top-6 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-primary backdrop-blur">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  Founder & Visionary
+                </div>
+              </div>
+            </div>
+
+            {/* Body */}
+            <div className="lg:col-span-7 p-8 md:p-12">
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+                Brainchild of
+              </span>
+              <h3 className="mt-3 font-serif text-3xl md:text-4xl leading-tight">
+                Prof. Dr. <em className="italic font-light">Jayul Doshi</em>
+              </h3>
+              <p className="mt-2 text-sm uppercase tracking-[0.18em] text-muted-foreground">
+                Architect of India's first Chiropractic Faculty Training Program
+              </p>
+
+              <Quote className="mt-7 h-7 w-7 text-primary/50" />
+              <p className="mt-3 font-serif text-xl leading-relaxed text-foreground md:text-2xl">
+                "For the first time, India is building a structured academic pathway to prepare
+                chiropractors not just for clinical practice — but for academic leadership and faculty
+                development within university environments."
+              </p>
+
+              <div className="mt-8 grid gap-2.5 sm:grid-cols-2">
+                {founderRoles.map((r) => (
+                  <div key={r} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <span className="text-sm text-muted-foreground">{r}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                  href="mailto:info@chiropracticindia.com"
+                  className="inline-flex items-center gap-2 rounded-full gradient-cta px-5 py-3 text-sm font-medium text-primary-foreground shadow-elegant transition-all hover:scale-[1.03] hover:shadow-glow"
+                >
+                  <Mail className="h-4 w-4" />
+                  info@chiropracticindia.com
+                </a>
+                <a
+                  href="tel:+916364047575"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-3 text-sm font-medium transition-colors hover:bg-secondary"
+                >
+                  <Phone className="h-4 w-4" />
+                  +91 636 404 7575
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* === ROADMAP === */}
         <div className="mt-28">

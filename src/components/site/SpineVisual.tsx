@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export const SpineVisual = () => {
     return (
-        <div className="relative mx-auto w-full max-w-[360px] aspect-[2/5]">
+        <div className="relative mx-auto w-full max-w-[300px] aspect-[2/5] max-h-[78vh]">
             {/* Spine SVG Visualization — no surrounding box, fills full container height */}
             <div className="absolute inset-0 flex items-center justify-center">
                 <svg viewBox="0 0 200 500" preserveAspectRatio="xMidYMid meet" className="h-full w-full opacity-95 drop-shadow-xl">
