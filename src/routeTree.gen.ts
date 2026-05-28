@@ -19,6 +19,11 @@ import { Route as CollegeRouteImport } from './routes/college'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CollegeVietnamRouteImport } from './routes/college_.vietnam'
+import { Route as CollegeSriLankaRouteImport } from './routes/college_.sri-lanka'
+import { Route as CollegePhilippinesRouteImport } from './routes/college_.philippines'
+import { Route as CollegeEthiopiaRouteImport } from './routes/college_.ethiopia'
+import { Route as CollegeCambodiaRouteImport } from './routes/college_.cambodia'
 
 const MissionRoute = MissionRouteImport.update({
   id: '/mission',
@@ -70,6 +75,31 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CollegeVietnamRoute = CollegeVietnamRouteImport.update({
+  id: '/college_/vietnam',
+  path: '/college/vietnam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollegeSriLankaRoute = CollegeSriLankaRouteImport.update({
+  id: '/college_/sri-lanka',
+  path: '/college/sri-lanka',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollegePhilippinesRoute = CollegePhilippinesRouteImport.update({
+  id: '/college_/philippines',
+  path: '/college/philippines',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollegeEthiopiaRoute = CollegeEthiopiaRouteImport.update({
+  id: '/college_/ethiopia',
+  path: '/college/ethiopia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollegeCambodiaRoute = CollegeCambodiaRouteImport.update({
+  id: '/college_/cambodia',
+  path: '/college/cambodia',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +112,11 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/information': typeof InformationRoute
   '/mission': typeof MissionRoute
+  '/college/cambodia': typeof CollegeCambodiaRoute
+  '/college/ethiopia': typeof CollegeEthiopiaRoute
+  '/college/philippines': typeof CollegePhilippinesRoute
+  '/college/sri-lanka': typeof CollegeSriLankaRoute
+  '/college/vietnam': typeof CollegeVietnamRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +129,11 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/information': typeof InformationRoute
   '/mission': typeof MissionRoute
+  '/college/cambodia': typeof CollegeCambodiaRoute
+  '/college/ethiopia': typeof CollegeEthiopiaRoute
+  '/college/philippines': typeof CollegePhilippinesRoute
+  '/college/sri-lanka': typeof CollegeSriLankaRoute
+  '/college/vietnam': typeof CollegeVietnamRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +147,11 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/information': typeof InformationRoute
   '/mission': typeof MissionRoute
+  '/college_/cambodia': typeof CollegeCambodiaRoute
+  '/college_/ethiopia': typeof CollegeEthiopiaRoute
+  '/college_/philippines': typeof CollegePhilippinesRoute
+  '/college_/sri-lanka': typeof CollegeSriLankaRoute
+  '/college_/vietnam': typeof CollegeVietnamRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +166,11 @@ export interface FileRouteTypes {
     | '/faq'
     | '/information'
     | '/mission'
+    | '/college/cambodia'
+    | '/college/ethiopia'
+    | '/college/philippines'
+    | '/college/sri-lanka'
+    | '/college/vietnam'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +183,11 @@ export interface FileRouteTypes {
     | '/faq'
     | '/information'
     | '/mission'
+    | '/college/cambodia'
+    | '/college/ethiopia'
+    | '/college/philippines'
+    | '/college/sri-lanka'
+    | '/college/vietnam'
   id:
     | '__root__'
     | '/'
@@ -145,6 +200,11 @@ export interface FileRouteTypes {
     | '/faq'
     | '/information'
     | '/mission'
+    | '/college_/cambodia'
+    | '/college_/ethiopia'
+    | '/college_/philippines'
+    | '/college_/sri-lanka'
+    | '/college_/vietnam'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +218,11 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   InformationRoute: typeof InformationRoute
   MissionRoute: typeof MissionRoute
+  CollegeCambodiaRoute: typeof CollegeCambodiaRoute
+  CollegeEthiopiaRoute: typeof CollegeEthiopiaRoute
+  CollegePhilippinesRoute: typeof CollegePhilippinesRoute
+  CollegeSriLankaRoute: typeof CollegeSriLankaRoute
+  CollegeVietnamRoute: typeof CollegeVietnamRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +297,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/college_/vietnam': {
+      id: '/college_/vietnam'
+      path: '/college/vietnam'
+      fullPath: '/college/vietnam'
+      preLoaderRoute: typeof CollegeVietnamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/college_/sri-lanka': {
+      id: '/college_/sri-lanka'
+      path: '/college/sri-lanka'
+      fullPath: '/college/sri-lanka'
+      preLoaderRoute: typeof CollegeSriLankaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/college_/philippines': {
+      id: '/college_/philippines'
+      path: '/college/philippines'
+      fullPath: '/college/philippines'
+      preLoaderRoute: typeof CollegePhilippinesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/college_/ethiopia': {
+      id: '/college_/ethiopia'
+      path: '/college/ethiopia'
+      fullPath: '/college/ethiopia'
+      preLoaderRoute: typeof CollegeEthiopiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/college_/cambodia': {
+      id: '/college_/cambodia'
+      path: '/college/cambodia'
+      fullPath: '/college/cambodia'
+      preLoaderRoute: typeof CollegeCambodiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -246,6 +346,11 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   InformationRoute: InformationRoute,
   MissionRoute: MissionRoute,
+  CollegeCambodiaRoute: CollegeCambodiaRoute,
+  CollegeEthiopiaRoute: CollegeEthiopiaRoute,
+  CollegePhilippinesRoute: CollegePhilippinesRoute,
+  CollegeSriLankaRoute: CollegeSriLankaRoute,
+  CollegeVietnamRoute: CollegeVietnamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

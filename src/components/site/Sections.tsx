@@ -83,8 +83,66 @@ function SectionHeader({
 }
 
 export function About() {
+  const historyMilestones = [
+    {
+      year: "1997",
+      title: "The Origin",
+      d: "The Chiropractic Diplomatic Corps (CDC) began international development of the chiropractic profession — first by rotating American and Canadian doctors into clinics in the Caribbean and Latin America.",
+    },
+    {
+      year: "1998",
+      title: "The Realization",
+      d: "After the World Federation of Chiropractors' 1st Conference on Chiropractic Education, the conclusion became clear: before any nation can sustainably grow the profession, it must have a Chiropractic education program of its own.",
+    },
+    {
+      year: "2004",
+      title: "India Enters",
+      d: "A World Health Organization referral to a Bangalore NGO opened the door. An initial proposal was made to the Karnataka Government to establish a Chiropractic Fellowship for post-MBBS certification, alongside a federal-level attempt for a full Doctor of Chiropractic diploma course.",
+    },
+    {
+      year: "2022",
+      title: "Chiropractic India is Founded",
+      d: "Chiropractic India is established as an education and research charity — with the technical and logistical capacity to finally formally launch Chiropractic Education and research in India.",
+    },
+  ];
+
+  const stats = [
+    { v: "32,700", l: "Doctors of Chiropractic India needs based on its economy" },
+    { v: "1:43,000", l: "Target provider-to-population ratio for India" },
+    { v: "100 yrs", l: "At 48 graduates / institution / year — 5 generations to meet target" },
+  ];
+
+  const challenges = [
+    {
+      icon: Building2,
+      t: "The 46-Institution Gap",
+      d: "Existing global chiropractic institutions cannot resolve the faculty manpower needed for India — the supply is simply not there.",
+    },
+    {
+      icon: Wallet,
+      t: "Foreign Faculty Costs",
+      d: "Paying foreign faculty inside an Indian university is economically untenable. Sustainability demands locally-trained educators.",
+    },
+  ];
+
+  const objectives = [
+    "Standards for Chiropractic in India",
+    "Chiropractic Research in India",
+    "Chiropractic Education",
+    "Establishing 10 Universities in India",
+    "Continuing Education for Chiropractors in India",
+    "Legitimising a Chiropractic Council",
+  ];
+
   return (
-    <section id="about" className="relative px-6 py-28">
+    <section id="about" className="relative overflow-hidden px-6 py-28">
+      {/* Ambient backgrounds */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-20 right-1/4 h-[420px] w-[420px] rounded-full bg-primary/8 blur-[120px]" />
+        <div className="absolute bottom-40 -left-32 h-[360px] w-[360px] rounded-full bg-primary/5 blur-[100px]" />
+      </div>
+
+      {/* === HERO INTRO === */}
       <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -92,35 +150,30 @@ export function About() {
           viewport={{ once: true }}
         >
           <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Our Story</span>
-          <h2 className="mt-3 font-serif text-4xl md:text-5xl">
-            Setting Standards for <em className="italic font-light">Chiropractic</em> in India
+          <h2 className="mt-3 font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
+            Setting Standards for <em className="italic font-light text-primary">Chiropractic</em> in India
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             Chiropractic India started in 2022 in response to the tragic decrease in
-            GENUINE CHIROPRACTORS in India as a result of the global pandemic.
+            genuine chiropractors in India after the global pandemic.
           </p>
-          <p className="mt-3 text-muted-foreground">
-            This pioneer revolution originally started in 2004 when Dr. Michel Tetrault and
+          <p className="mt-3 leading-relaxed text-muted-foreground">
+            The work originally began in 2004 when Dr. Michel Tetrault and
             Dr. Gary Auerbach were invited to Bangalore to support the Bangalore Healthy City initiative.
-            Today, we continue to push forward in setting standards of practice, education, and accreditation.
-          </p>
-          <p className="mt-3 text-muted-foreground">
-            While early applications for government approval of Doctor of Chiropractic courses
-            faced limited interest, current healthcare realities have prompted the CDC and
-            Chiropractic India to accelerate our mission for official recognition and integration.
+            Today, we continue to push forward — setting standards of practice, education and accreditation.
           </p>
           <a
-            href="#mission"
+            href="/mission"
             className="mt-8 inline-flex items-center gap-2 rounded-full gradient-cta px-6 py-3 text-sm font-medium text-primary-foreground shadow-elegant transition-transform hover:scale-[1.03]"
           >
-            Explore Chiropractic <ArrowRight className="h-4 w-4" />
+            Explore Our Mission <ArrowRight className="h-4 w-4" />
           </a>
         </motion.div>
 
         <div className="grid grid-cols-2 gap-4">
           {[
             { t: "The Pandemic Response", d: "Starting in 2022" },
-            { t: "Global standards", d: "Chiropractic India" },
+            { t: "Global Standards", d: "Chiropractic India" },
             { t: "Founder's Vision", d: "Michel & Gary" },
             { t: "Clinical Excellence", d: "Standard of care" },
           ].map((v, i) => (
@@ -144,6 +197,251 @@ export function About() {
               </div>
             </motion.div>
           ))}
+        </div>
+      </div>
+
+      {/* === HISTORY TIMELINE === */}
+      <div className="mx-auto mt-28 max-w-7xl">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+            A Quarter Century in Motion
+          </span>
+          <h3 className="mt-3 font-serif text-3xl md:text-4xl">
+            Chiropractic Education in <em className="italic font-light text-primary">India</em>
+          </h3>
+          <p className="mt-5 text-muted-foreground">
+            How the CDC's global initiative made its way to Bangalore — and why India needed
+            its own home-grown faculty pipeline.
+          </p>
+        </div>
+
+        <div className="relative mt-14">
+          {/* Horizontal connector line — sits behind the marker dots */}
+          <div className="pointer-events-none absolute left-0 right-0 top-5 hidden h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent md:block" />
+
+          <ol className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-5">
+            {historyMilestones.map((m, i) => (
+              <motion.li
+                key={m.year}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="relative flex flex-col items-center text-center"
+              >
+                {/* Marker dot — anchors onto the horizontal connector line */}
+                <span className="relative z-10 grid h-10 w-10 place-items-center rounded-full bg-primary text-primary-foreground ring-4 ring-background shadow-glow">
+                  <Calendar className="h-5 w-5" />
+                </span>
+
+                {/* Card */}
+                <div className="mt-6 w-full rounded-2xl border border-border bg-card p-5 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant md:p-6">
+                  <p className="font-serif text-3xl font-semibold text-primary md:text-4xl">{m.year}</p>
+                  <p className="mt-2 font-serif text-lg leading-tight md:text-xl">{m.title}</p>
+                  <p className="mt-3 text-[13px] leading-relaxed text-muted-foreground">{m.d}</p>
+                </div>
+              </motion.li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      {/* === SIGNATURE OBJECTIVE (moved up — sits before "The Math") === */}
+      <div className="mx-auto mt-28 max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative overflow-hidden rounded-[2.5rem] glass-strong p-10 shadow-elegant md:p-16"
+        >
+          <Quote className="absolute right-12 top-12 h-32 w-32 text-primary/10 md:h-48 md:w-48" />
+          <div className="relative grid gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+                Signature Objective
+              </span>
+              <h3 className="mt-3 font-serif text-3xl md:text-4xl leading-tight">
+                A profession <em className="italic font-light text-primary">cannot</em> be taken seriously until it is sustainable.
+              </h3>
+            </div>
+            <div className="lg:col-span-7 lg:col-start-6">
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                The only way to assure the endemic growth of a profession is to grow your own —
+                in each nation, in its own culture, language and economy. To assure sustainability,
+                education must be of high quality and provided by professional educators, embracing
+                21st-century technology and inspired leadership.
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                This is{" "}
+                <strong className="font-semibold text-foreground">
+                  Chiropractic India's primary purpose
+                </strong>{" "}
+                — to establish a strong foundation for Chiropractic Education in India.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* === CASE FOR INDIA'S OWN FACULTY === */}
+      <div className="mx-auto mt-28 max-w-7xl">
+        <div className="grid items-start gap-14 lg:grid-cols-12">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-6"
+          >
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              The Math
+            </span>
+            <h3 className="mt-3 font-serif text-3xl md:text-4xl">
+              Why India must grow its <em className="italic font-light text-primary">own</em> faculty
+            </h3>
+            <p className="mt-5 leading-relaxed text-muted-foreground">
+              In established markets, the population ratio for chiropractic providers is roughly
+              1 per 5,000 to 10,000 people. Calibrating to India's economy, the country needs an
+              estimated <strong className="font-semibold text-foreground">32,700 Doctors of Chiropractic</strong> —
+              a ratio of 1 provider for every 43,000 Indians.
+            </p>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              At a graduating class of just 48 chiropractors per institution per year, meeting that
+              target would take <strong className="font-semibold text-foreground">100 years — five full generations.</strong>{" "}
+              Recruiting experienced chiropractic educators from abroad has been attempted for
+              over a decade, with little success.
+            </p>
+            <p className="mt-4 leading-relaxed text-muted-foreground italic">
+              Creating manpower — a faculty pool of qualified chiropractic educators — has been the
+              single biggest stumbling block of the prior decade.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-6"
+          >
+            <div className="grid gap-4 sm:grid-cols-1">
+              {stats.map((s, i) => (
+                <motion.div
+                  key={s.v}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 + i * 0.08 }}
+                  className="flex items-center gap-6 rounded-3xl glass p-6 shadow-soft"
+                >
+                  <p className="shrink-0 font-serif text-5xl font-semibold text-primary md:text-6xl">
+                    {s.v}
+                  </p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{s.l}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Two challenges */}
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          {challenges.map((c, i) => (
+            <motion.div
+              key={c.t}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className="group relative overflow-hidden rounded-[2rem] border border-border bg-card p-8 shadow-soft transition-all hover:-translate-y-1 hover:shadow-elegant"
+            >
+              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[radial-gradient(closest-side,_oklch(0.78_0.14_150_/_0.2),_transparent)] transition-transform group-hover:scale-125" />
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-secondary text-primary">
+                <c.icon className="h-5 w-5" />
+              </span>
+              <h4 className="mt-5 font-serif text-2xl">{c.t}</h4>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.d}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* === PRINCIPAL FOCUS + OBJECTIVES === */}
+      <div className="mx-auto mt-20 max-w-7xl">
+        <div className="grid gap-8 lg:grid-cols-12">
+          {/* Principal focus — dark gradient block */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-[2.5rem] gradient-cta p-10 text-primary-foreground shadow-elegant md:p-12 lg:col-span-5"
+          >
+            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary-glow/30 blur-3xl" />
+            <div className="absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-primary-glow/20 blur-3xl" />
+            <div className="relative">
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] opacity-80">
+                Principal Focus
+              </span>
+              <p className="mt-5 font-serif text-3xl leading-tight md:text-4xl">
+                Our principal focus is to increase the formation of new chiropractic colleges and{" "}
+                <em className="italic font-light text-primary-foreground/90">legitimise</em>{" "}
+                the chiropractic profession in India.
+              </p>
+              <div className="mt-8 flex items-center gap-3 rounded-full bg-white/10 px-5 py-3 backdrop-blur ring-1 ring-white/15 w-fit">
+                <ShieldCheck className="h-4 w-4" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em]">
+                  Chiropractic India · Setting Standards
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Objectives checklist */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="rounded-[2.5rem] border border-border bg-card p-10 shadow-soft md:p-12 lg:col-span-7"
+          >
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
+              Objectives
+            </span>
+            <h3 className="mt-3 font-serif text-3xl md:text-4xl">
+              Chiropractic Education Development in <em className="italic font-light text-primary">India</em>
+            </h3>
+
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+              {objectives.map((o, i) => (
+                <motion.li
+                  key={o}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.05 + i * 0.06 }}
+                  className="flex items-start gap-3 rounded-2xl bg-secondary/40 p-4 transition-colors hover:bg-secondary/70"
+                >
+                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+                    <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                  </span>
+                  <span className="text-sm font-medium leading-relaxed text-foreground">{o}</span>
+                </motion.li>
+              ))}
+            </ul>
+
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a
+                href="/college"
+                className="group inline-flex items-center gap-2 rounded-full gradient-cta px-6 py-3 text-sm font-medium text-primary-foreground shadow-elegant transition-transform hover:scale-[1.03]"
+              >
+                See the College
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <a
+                href="#donate"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary"
+              >
+                Support the Foundation
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -603,9 +901,17 @@ export function CTA() {
 }
 
 export function Footer() {
+  const internationalLinks: { name: string; flag: string; href: string }[] = [
+    { name: "Sri Lanka", flag: "🇱🇰", href: "/college/sri-lanka" },
+    { name: "Philippines", flag: "🇵🇭", href: "/college/philippines" },
+    { name: "Vietnam", flag: "🇻🇳", href: "/college/vietnam" },
+    { name: "Cambodia", flag: "🇰🇭", href: "/college/cambodia" },
+    { name: "Ethiopia", flag: "🇪🇹", href: "/college/ethiopia" },
+  ];
+
   return (
     <footer className="border-t border-border px-6 py-14">
-      <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-5">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2.5">
             <span className="grid h-9 w-9 place-items-center rounded-full gradient-primary text-primary-foreground">
@@ -629,6 +935,19 @@ export function Footer() {
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             {["About", "Mission", "Experts", "FAQ"].map((l) => (
               <li key={l}><a href={`#${l.toLowerCase()}`} className="hover:text-foreground">{l}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p className="text-sm font-semibold">International Students</p>
+          <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+            {internationalLinks.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="inline-flex items-center gap-2 hover:text-foreground">
+                  <span aria-hidden>{l.flag}</span>
+                  Study from {l.name}
+                </a>
+              </li>
             ))}
           </ul>
         </div>
@@ -1620,7 +1939,7 @@ export function College() {
     { icon: Calendar, t: "August 2026", d: "Inaugural cohort launch" },
     { icon: Users, t: "~30 Fellows", d: "International + Indian" },
     { icon: Graduation, t: "6-Year Masters", d: "Fellowship pathway" },
-    { icon: Globe2, t: "4 Nations", d: "India · Philippines · Nigeria · Ethiopia" },
+    { icon: Globe2, t: "5 Nations", d: "Sri Lanka · Philippines · Vietnam · Cambodia · Ethiopia" },
   ];
 
   const aiFeatures = [
@@ -1666,8 +1985,10 @@ export function College() {
 
   const countries = [
     { name: "India", role: "Academic Hub & HQ" },
+    { name: "Sri Lanka", role: "Inaugural Cohort" },
     { name: "Philippines", role: "Inaugural Cohort" },
-    { name: "Nigeria", role: "Inaugural Cohort" },
+    { name: "Vietnam", role: "Inaugural Cohort" },
+    { name: "Cambodia", role: "Inaugural Cohort" },
     { name: "Ethiopia", role: "Inaugural Cohort" },
   ];
 
@@ -1684,7 +2005,7 @@ export function College() {
     },
     {
       t: "August 2026 — Inaugural Cohort",
-      d: "~30 fellows from India, Philippines, Nigeria and Ethiopia begin the FTP and Masters pathway.",
+      d: "~30 fellows from Sri Lanka, the Philippines, Vietnam, Cambodia and Ethiopia begin the FTP and Masters pathway alongside Indian students.",
       done: false,
     },
     {
@@ -2173,7 +2494,7 @@ export function College() {
               programs back home.
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {countries.map((c) => (
                 <div
                   key={c.name}
@@ -2385,7 +2706,7 @@ export function College() {
                   <div className="absolute inset-x-6 bottom-6 grid grid-cols-3 gap-3 rounded-2xl bg-white/95 p-4 backdrop-blur">
                     {[
                       { v: "30", l: "Fellows" },
-                      { v: "4", l: "Nations" },
+                      { v: "5", l: "Nations" },
                       { v: "6yr", l: "Masters" },
                     ].map((s) => (
                       <div key={s.l} className="text-center">

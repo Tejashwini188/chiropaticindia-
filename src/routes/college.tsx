@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { College } from "@/components/site/Sections";
+import { CountrySwitcher } from "@/components/site/CountryPage";
 
 export const Route = createFileRoute("/college")({
   head: () => ({
@@ -18,6 +19,7 @@ export const Route = createFileRoute("/college")({
 function CollegePage() {
   return (
     <main>
+      <CountrySwitcher />
       <College />
     </main>
   );
